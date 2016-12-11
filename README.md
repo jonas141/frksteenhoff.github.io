@@ -1,2 +1,2 @@
 # frksteenhoff.github.io
-Used for testing different content and webpage material
+Used for testing different ideas, content and webpage material
