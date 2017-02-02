@@ -16,9 +16,15 @@ li {
     float: center;
 }
 
+div a {
+    display: block;
+    color: #737373;
+    text-decoration: none;
+}
+ 
 li a {
     display: block;
-    color: grey;
+    color: #737373;
     text-align: center;
     padding: 10px 26px;
     text-decoration: none;
@@ -35,8 +41,8 @@ a:hover:not(.active) {
 }
 
 #menu li { 
-display: inline-block; 
-padding: 20px; 
+	display: inline-block; 
+	padding: 20px; 
 }
 
 #menu ul {
@@ -68,23 +74,51 @@ p1 {
 }
 
 div p {
-  margin-top: 30 px;
-  margin-bottom: 30 px;
+	margin-top: 0px;
+	margin-bottom: 0px;
 
  }
 
 div.transbox {
-  margin: 20px;
-  margin-right: 0px;
-  margin-left: 0px;
-  text-indent: 10px;
-  background-color: #ffffff;
-  opacity: 0.7;
-  filter: alpha(opacity=60); /* For IE8 and earlier */
+	margin: 20px;
+	margin-right: 0px;
+	margin-left: 0px;
+	text-indent: 10px;
+	background-color: #ffffff;
+	opacity: 0.7;
+	filter: alpha(opacity=70); /* For IE8 and earlier */
 }
 
 div.transbox p {
+	color: #000000;
+    margin-top: 10px;
+  	margin-bottom: 5px;
+  	margin-left: 20px;
+}
+
+div.transbox h3 {
     color: #000000;
-    margin-top: 60 px;
-  	margin-bottom: 30 px;
+  	margin-left: 20px;
+}
+
+div.transbox ul {
+    color: #000000;
+  	margin-left: 20px;
+  	margin-right: 20px;
+}
+
+.img {
+	float: right;
+}
+
+.img-circle {
+    border-radius: 50%;
+}
+
+div.jumbotron.img {
+	margin-right: 30px;
+}
+
+div.jumbotron p {
+	margin-bottom: 40px;
 }
