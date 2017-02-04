@@ -1,10 +1,13 @@
 
+/* set general page settings*/
 body {
     font-family: 'Roboto', sans-serif;
     font-size: 28px;
 	background-color: white;
 }
 
+  
+/* List element settings */
 ul {
     list-style-type: none;
     margin: 0;
@@ -16,15 +19,17 @@ li {
     float: center;
 }
 
+
+/* Link styling */
 div a {
     display: block;
-    color: #737373;
+    color: #585858;
     text-decoration: none;
 }
  
 li a {
     display: block;
-    color: #737373;
+    color: #585858;
     text-align: center;
     padding: 10px 26px;
     text-decoration: none;
@@ -50,7 +55,7 @@ a:hover:not(.active) {
     margin: 0px;
 }
 
-
+/* Font size and styling */
 h1 {
     color: grey;
     margin-left: 20px;
@@ -70,7 +75,12 @@ p {
 
 p1 {
 	color:grey;
-	font-size: 11px;
+	font-size: 13px;
+}
+
+p2 {
+	color:grey;
+	font-size: 15px;
 }
 
 div p {
@@ -79,14 +89,15 @@ div p {
 
  }
 
+/* Container styling - areas */
 div.transbox {
 	margin: 20px;
 	margin-right: 0px;
 	margin-left: 0px;
 	text-indent: 10px;
 	background-color: #ffffff;
-	opacity: 0.7;
-	filter: alpha(opacity=70); /* For IE8 and earlier */
+	opacity: 0.8;
+	filter: alpha(opacity=80); /* For IE8 and earlier */
 }
 
 div.transbox p {
@@ -107,13 +118,6 @@ div.transbox ul {
   	margin-right: 20px;
 }
 
-.img {
-	float: right;
-}
-
-.img-circle {
-    border-radius: 50%;
-}
 
 div.jumbotron.img {
 	margin-right: 30px;
@@ -121,4 +125,52 @@ div.jumbotron.img {
 
 div.jumbotron p {
 	margin-bottom: 40px;
+}
+
+
+/* Button and SVG element styling */
+
+.img {
+	float: right;
+}
+
+.img-circle {
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.button {
+    background-color: #585858; /* Grey */
+    border: none;
+    color: white;
+    padding: 100px 100px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+#buttons {
+    font-size: 16px;
+    text-align: center;
+}
+
+#buttons li { 
+	display: inline-block; 
+	padding: 10px; 
+}
+
+#social {
+    font-size: 16px;
+    text-align: center;
+}
+
+#social li { 
+	display: inline-block; 
+	padding: 10px; 
+}
+
+
+button:hover {
+    background-color: #888888;
 }
