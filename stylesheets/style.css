@@ -169,7 +169,7 @@ div.jumbotron p {
     background-color: #585858; /* Grey */
     border: none;
     color: white;
-    padding: 100px 100px;
+    padding: 110px 110px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -179,6 +179,7 @@ div.jumbotron p {
 #buttons {
     font-size: 16px;
     text-align: center;
+    margin-top: 20px;
 }
 
 #buttons li { 

@@ -1,0 +1,41 @@
+<html>
+<body background="images/network_background.jpg">
+	<head>
+		<meta charset="utf-8">
+		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+		  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  		<script type="text/javascript" src="d3/d3.js"></script>
+		<title>Course work</title>
+	</head>
+		<div id='menu'>
+			<ul>
+  				<li><a href="index.html">Home</a></li>
+  				<li><a href="about.html">About</a></li>
+  				<li><a href="projects.html">Projects</a></li>
+  				<li><a href="interests.html">Interests</a></li>
+			</ul>
+		</div>
+		<div class="container">
+			<div class="transbox">
+				<h3>
+				Course work, 02806 - Social Data Analysis, DTU 2017	
+				</h3>
+			</div>
+		</div>
+			<script type="text/javascript">
+				// Working with chain syntax
+				var dataset = [ 0, 5, 10, 15, 20, 25 ];
+				d3.select(".container")
+				.select(".transbox")
+				.selectAll("p")
+				.data(dataset)
+				.enter()
+				.append("p")
+				.text(function(d) { return "I can count up to " + d; })
+				.style("color", "black");
+			</script>
+</body>
+</html>

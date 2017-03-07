@@ -16,6 +16,7 @@
   				<li><a href="about.html">About</a></li>
   				<li><a href="projects.html">Projects</a></li>
   				<li><a href="interests.html">Interests</a></li>
+  				<li><a href="projects2.html">Course work</a></li>
 			</ul>
 		</div>
 		<div class="container">
@@ -121,5 +122,18 @@
 			<blockquote></blockquote>
 		</div></div>		
 
+		<div class="container">
+			<div class="transbox">
+			<script type="text/javascript">
+				// Working with chain syntax
+				var dataset = [ 5, 10, 15, 20, 25 ];
+				d3.select("body").selectAll("p")
+				.data(dataset)
+				.enter()
+				.append("p")
+				.text(function(d) { return d; })
+				.style("color", "red");
+			</script>
+		</div></div>
 </body>
 </html>
