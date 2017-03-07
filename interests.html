@@ -13,7 +13,6 @@
 		<div id='menu'>
 			<ul>
   				<li><a href="index.html">Home</a></li>
-  				<li><a href="about.html">About</a></li>
   				<li><a href="projects.html">Projects</a></li>
   				<li><a href="interests.html">Interests</a></li>
   				<li><a href="projects2.html">Course work</a></li>
@@ -21,119 +20,20 @@
 		</div>
 		<div class="container">
 			<div class="transbox">
-				<h3>
-				Data, data, data			
-				</h3>
-				<p></p>
+				<h2>
+				Data, data, data
+				</h2>
 			</div>
 		</div>
-
-		<div class="container"><div class="transbox">
-		<p>The following D3-element is added from "Interactive Data Visualization for the Web" by Scott Murray and revised to fit my own material.</p>	
-		</div></div>
-		<script type="text/javascript">
-			//Width and height
-			var w = 1200;
-			var h = 500;
-			//Original data
-			var dataset = {
-				nodes: [
-					{ name: "Adam" },
-					{ name: "Bob" },
-					{ name: "Carrie" },
-					{ name: "Donovan" },
-					{ name: "Edward" },
-					{ name: "Felicity" },
-					{ name: "George" },
-					{ name: "Hannah" },
-					{ name: "Iris" },
-					{ name: "Jerry" }
-				],
-				edges: [
-					{ source: 0, target: 1 },
-					{ source: 0, target: 2 },
-					{ source: 0, target: 3 },
-					{ source: 0, target: 4 },
-					{ source: 1, target: 5 },
-					{ source: 2, target: 5 },
-					{ source: 2, target: 5 },
-					{ source: 3, target: 4 },
-					{ source: 5, target: 8 },
-					{ source: 5, target: 9 },
-					{ source: 6, target: 7 },
-					{ source: 7, target: 8 },
-					{ source: 8, target: 9 }
-				]
-			};
-			//Initialize a default force layout, using the nodes and edges in dataset
-			var force = d3.layout.force()
-								 .nodes(dataset.nodes)
-								 .links(dataset.edges)
-								 .size([w, h])
-								 .linkDistance([70])
-								 .charge([-200])
-								 .start();
-			var colors = d3.scale.category10();
-			var colors = d3.scale.category10();
-			//Create SVG element
-			var svg = d3.select("body")
-						.append("svg")
-						.attr("width", w)
-						.attr("height", h);
-			
-			//Create edges as lines
-			var edges = svg.selectAll("line")
-				.data(dataset.edges)
-				.enter()
-				.append("line")
-				.style("stroke", "#fff")
-				.style("stroke-width", 1);
-			
-			//Create nodes as circles
-			var nodes = svg.selectAll("circle")
-				.data(dataset.nodes)
-				.enter()
-				.append("circle")
-				.attr("r", 10)
-				.style("fill", function(d, i) {
-					return colors(i);
-				})
-				.call(force.drag);
-			
-			//Every time the simulation "ticks", this will be called
-			force.on("tick", function() {
-				edges.attr("x1", function(d) { return d.source.x; })
-					 .attr("y1", function(d) { return d.source.y; })
-					 .attr("x2", function(d) { return d.target.x; })
-					 .attr("y2", function(d) { return d.target.y; });
-			
-				nodes.attr("cx", function(d) { return d.x; })
-					 .attr("cy", function(d) { return d.y; });
-			});
-		</script>
 
 		<div class="container">
 			<div class="transbox">
 			<br></br>
 			<h3>Quotes</h3>
-			<blockquote><em>Maybe it's not about avoiding the crash. But it's about setting the breakpoint to find the flaw in the code, fix it, so we can carry on until we hit the next flaw to keep going. The quest to keep going. To always fight for footing.</em> - Mr. Robot</blockquote>
+			<blockquote><em>Maybe it's not about avoiding the crash. But it's about setting the breakpoint to find the flaw in the code, fix it, so we can carry on until we hit the next flaw. The quest to keep going. To always fight for footing.</em> - Mr. Robot</blockquote>
 			<p>The paragraph is used as an analogy to describe the mental state that the main character is in. Using debugging to explain a course of action to regain his sanity is really beautiful and help to describe the repetitive algorithmic procedure that one has to go through.</p>
 
 			<blockquote></blockquote>
 		</div></div>		
-
-		<div class="container">
-			<div class="transbox">
-			<script type="text/javascript">
-				// Working with chain syntax
-				var dataset = [ 5, 10, 15, 20, 25 ];
-				d3.select("body").selectAll("p")
-				.data(dataset)
-				.enter()
-				.append("p")
-				.text(function(d) { return d; })
-				.style("color", "red");
-			</script>
-		</div></div>
 </body>
 </html>

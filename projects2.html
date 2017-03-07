@@ -13,21 +13,19 @@
 		<div id='menu'>
 			<ul>
   				<li><a href="index.html">Home</a></li>
-  				<li><a href="about.html">About</a></li>
   				<li><a href="projects.html">Projects</a></li>
   				<li><a href="interests.html">Interests</a></li>
+   				<li><a href="projects2.html">Course work</a></li>
 			</ul>
 		</div>
 		<div class="container">
 			<div class="transbox">
-				<h3>
-				Course work, 02806 - Social Data Analysis, DTU 2017	
-				</h3>
+				<h2>
+				Course work: 02806 - Social Data Analysis
+				</h2>
 		</div></div>
-
-		<div class="container">
+	<div class="container">
 		<div class="transbox">
-			<br></br>
 			<h3>SVG</h3>		
 			<p>Right now, I'm learning about SVG elements and how they work. The following is just a couple of SVG-elements (circles) where I changed the opacity and used the computer graphics coordinates to position the circles such that they overlap as can be seen below.</p>
 		<element>
@@ -39,11 +37,111 @@
 				<circle cx="250" cy="75" r="50" fill="rgba(255, 0, 0, 0.1)"/>
 			</svg>
 		</element>
+	</div></div>
+
+<div class="container">
+	<div class="transbox">
+		<h3>Interactive graphs with d3</h3>
+		<p>The following D3-element is added from "Interactive Data Visualization for the Web" by Scott Murray and revised to fit my own material.</p>	
 		</div></div>
+		<script type="text/javascript">
+			//Width and height
+			var w = 1200;
+			var h = 400;
+			//Original data
+			var dataset = {
+				nodes: [
+					{ name: "Adam" },
+					{ name: "Bob" },
+					{ name: "Carrie" },
+					{ name: "Donovan" },
+					{ name: "Edward" },
+					{ name: "Felicity" },
+					{ name: "George" },
+					{ name: "Hannah" },
+					{ name: "Iris" },
+					{ name: "Jerry" },
+					{ name: "Henriette" },
+					{ name: "Josefine" },
+					{ name: "Caroline" },
+					{ name: "Katrine" }
+				],
+				edges: [
+					{ source: 0, target: 1 },
+					{ source: 0, target: 2 },
+					{ source: 0, target: 3 },
+					{ source: 0, target: 4 },
+					{ source: 1, target: 5 },
+					{ source: 1, target: 9 },
+					{ source: 2, target: 5 },
+					{ source: 2, target: 9 },
+					{ source: 3, target: 5 },
+					{ source: 3, target: 4 },
+					{ source: 5, target: 8 },
+					{ source: 5, target: 9 },
+					{ source: 6, target: 7 },
+					{ source: 7, target: 8 },
+					{ source: 8, target: 9 },
+					{ source: 8, target: 10 },
+					{ source: 10,  target: 4 },
+					{ source: 10, target: 12 },
+					{ source: 10, target: 7 },
+					{ source: 11, target: 13 },
+					{ source: 12,  target: 2 },
+					{ source: 13,  target: 5 }
+				]
+			};
+			//Initialize a default force layout, using the nodes and edges in dataset
+			var force = d3.layout.force()
+								 .nodes(dataset.nodes)
+								 .links(dataset.edges)
+								 .size([w, h])
+								 .linkDistance([70])
+								 .charge([-200])
+								 .start();
+			var colors = d3.scale.category10();
+			var colors = d3.scale.category10();
+			//Create SVG element
+			var svg = d3.select("body")
+						.append("svg")
+						.attr("width", w)
+						.attr("height", h);
+			
+			//Create edges as lines
+			var edges = svg.selectAll("line")
+				.data(dataset.edges)
+				.enter()
+				.append("line")
+				.style("stroke", "#fff")
+				.style("stroke-width", 1);
+			
+			//Create nodes as circles
+			var nodes = svg.selectAll("circle")
+				.data(dataset.nodes)
+				.enter()
+				.append("circle")
+				.attr("r", 14)
+				.style("fill", function(d, i) {
+					return colors(i);
+				})
+				.call(force.drag);
+			
+			//Every time the simulation "ticks", this will be called
+			force.on("tick", function() {
+				edges.attr("x1", function(d) { return d.source.x; })
+					 .attr("y1", function(d) { return d.source.y; })
+					 .attr("x2", function(d) { return d.target.x; })
+					 .attr("y2", function(d) { return d.target.y; });
+			
+				nodes.attr("cx", function(d) { return d.x; })
+					 .attr("cy", function(d) { return d.y; });
+			});
+		</script>
+	</div></div>
 
 		<div class="container">
 		<div class="transbox">
-			<br></br>
+			<h3>JavaScript</h3>
 			<p>Here I am trying to use JavaScript to make some functional work on an array of integers. Right now it is iterating over the values, printing a string and the number, I will try to make it more interesting!</p>
 			<script type="text/javascript">
 				// Working with chain syntax
