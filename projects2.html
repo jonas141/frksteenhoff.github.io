@@ -23,19 +23,42 @@
 				<h3>
 				Course work, 02806 - Social Data Analysis, DTU 2017	
 				</h3>
-			</div>
-		</div>
+		</div></div>
+
+		<div class="container">
+		<div class="transbox">
+			<br></br>
+			<h3>SVG</h3>		
+			<p>Right now, I'm learning about SVG elements and how they work. The following is just a couple of SVG-elements (circles) where I changed the opacity and used the computer graphics coordinates to position the circles such that they overlap as can be seen below.</p>
+		<element>
+			<svg width="500" height="150">
+				<circle cx="50" cy="75" r="50" fill="rgba(128, 0, 128, 1.0)"/>
+				<circle cx="100" cy="75" r="50" fill="rgba(0, 0, 255, 0.75)"/>
+				<circle cx="150" cy="75" r="50" fill="rgba(0, 255, 0, 0.5)"/>
+				<circle cx="200" cy="75" r="50" fill="rgba(255, 255, 0, 0.25)"/>
+				<circle cx="250" cy="75" r="50" fill="rgba(255, 0, 0, 0.1)"/>
+			</svg>
+		</element>
+		</div></div>
+
+		<div class="container">
+		<div class="transbox">
+			<br></br>
+			<p>Here I am trying to use JavaScript to make some functional work on an array of integers. Right now it is iterating over the values, printing a string and the number, I will try to make it more interesting!</p>
 			<script type="text/javascript">
 				// Working with chain syntax
 				var dataset = [ 0, 5, 10, 15, 20, 25 ];
-				d3.select(".container")
-				.select(".transbox")
+				d3.select("body")
 				.selectAll("p")
 				.data(dataset)
 				.enter()
+				.append("container")
+				.append("transbox")
 				.append("p")
 				.text(function(d) { return "I can count up to " + d; })
 				.style("color", "black");
 			</script>
+		<br></br>
+		</div></div>
 </body>
 </html>

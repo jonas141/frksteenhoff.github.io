@@ -19,7 +19,6 @@ li {
     float: center;
 }
 
-
 /* Link styling */
 div a {
     display: block;
@@ -57,13 +56,9 @@ a:hover:not(.active) {
 
 /* Font size and styling */
 
-h1 {
-    color: grey;
-    margin-left: 20px;
-    margin-top: 30px;
-}
-
-h2 {
+h1, 
+h2,
+h3 {
     color: grey;
     margin-left: 20px;
     margin-top: 30px;
@@ -72,6 +67,7 @@ h2 {
 p {
 	color:grey;
 	margin-left: 20px;
+    padding-bottom: 0px;
 }
 
 p1 {
@@ -166,10 +162,10 @@ div.jumbotron p {
 }
 
 .button {
-    background-color: #585858; /* Grey */
+    background-color: #dbdcdd; /* Grey */
     border: none;
     color: white;
-    padding: 110px 110px;
+    padding: 90px 90px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -179,12 +175,13 @@ div.jumbotron p {
 #buttons {
     font-size: 16px;
     text-align: center;
-    margin-top: 20px;
 }
 
 #buttons li { 
 	display: inline-block; 
-	padding: 10px; 
+    padding-top: 30px;
+	padding-left: 9.3px;
+    padding-right: 9.3px; 
 }
 
 #social {
@@ -194,10 +191,10 @@ div.jumbotron p {
 
 #social li { 
 	display: inline-block; 
-	padding: 10px; 
+	padding-top: 20px; 
 }
 
 
 button:hover {
-    background-color: #888888;
+    background-color: #ffffff;
 }
