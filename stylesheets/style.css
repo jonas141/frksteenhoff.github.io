@@ -73,12 +73,6 @@ p2 {
 	font-size: 15px;
 }
 
-p3 {
-	color:grey;
-	font-size: 15px;
-	margin-left: 60px;	
-}
-
 
 div p {
 	margin-top: 0px;
@@ -86,36 +80,56 @@ div p {
  }
 
 /* Container styling - areas */
+div.bar {
+    display: inline-block;
+    width: 20px;
+    height: 75px; /* We'll override height later */
+    background-color: : teal;
+    margin-right: 2px;
+}
+
 div.container{
-    width: 800px;
+    width: 1010px;
 }
 
 div.container h3{
 	margin-top: 10px;
 }
 
+div.scriptbox {
+    text-align: center;
+    width: 900px;
+    padding-top: 15px;
+    background-color: #ffffff;
+    opacity: 0.8;
+    filter: alpha(opacity=80); /* For IE8 and earlier */
+}
+
 div.transbox {
-	margin-top: 20px;
-	margin-right: 0px;
+	margin-top: 0px;
+	margin-right: 20px;
 	margin-left: 0px;
 	background-color: #ffffff;
 	opacity: 0.8;
 	filter: alpha(opacity=80); /* For IE8 and earlier */
 }
 
-div.transbox p {
+#text, 
+div.transbox p, 
+div.scriptbox p {
 	color: #000000;
   	margin-left:  20px;
   	margin-right: 20px;
     margin-bottom: 0px;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
 }
 
 div.transbox p3 {
 	color:grey;
 	font-size: 15px;
-	margin-left: 60px;
-	margin-right: 40px;	
+	margin-right: 20px;
+    margin-left: 20px;
+    margin-bottom: 20px;	
 }
 
 div.transbox h2 {
@@ -127,7 +141,7 @@ div.transbox h2 {
 
 div.transbox h3 {
     color: #000000;
-	padding-top: 20px;
+	padding-top: 10px;
     padding-bottom: 10px;
   	margin-left: 20px;
 }

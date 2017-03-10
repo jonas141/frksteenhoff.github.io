@@ -39,11 +39,13 @@
 		</element>
 	</div></div>
 
+<!-- Interactive graph -->
 <div class="container">
 	<div class="transbox">
 		<h3>Interactive graphs with d3</h3>
 		<p>The following D3-element is added from "Interactive Data Visualization for the Web" by Scott Murray and revised to fit my own material.</p>	
 		</div></div>
+		<br></br>
 		<script type="text/javascript">
 			//Width and height
 			var w = 1200;
@@ -138,25 +140,42 @@
 			});
 		</script>
 	</div></div>
-
+	<!-- Printing array values -->
 		<div class="container">
 		<div class="transbox">
 			<h3>JavaScript</h3>
 			<p>Here I am trying to use JavaScript to make some functional work on an array of integers. Right now it is iterating over the values, printing a string and the number, I will try to make it more interesting!</p>
+		</div></div>
 			<script type="text/javascript">
 				// Working with chain syntax
 				var dataset = [ 0, 5, 10, 15, 20, 25 ];
-				d3.select("body")
-				.selectAll("p")
+				d3.select("body").select("div")
 				.data(dataset)
 				.enter()
-				.append("container")
-				.append("transbox")
+				.append("div")
+				.attr("class", "container scriptbox")
 				.append("p")
-				.text(function(d) { return "I can count up to " + d; })
-				.style("color", "black");
+				.text(function(d) { return "I can count to " + d; })
+				.style("color", "blue");
 			</script>
-		<br></br>
+
+	<!-- Bar chart 	
+	<div class="container">
+		<div class="transbox">
+		<p>...</p>
+			<script type="text/javascript">
+				// Working with chain syntax
+				var dataset = [ 0, 5, 10, 15, 20, 25 ];
+				d3.select("body").select("div")
+				.data(dataset)
+				.enter()
+				.attr("class", "container transbox")
+				.style("height", function(d){
+					var barHeight = d * 5;
+					return barHeight + "px";
+				});
+			</script>
 		</div></div>
+	-->
 </body>
 </html>
