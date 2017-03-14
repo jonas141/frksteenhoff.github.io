@@ -80,14 +80,6 @@ div p {
  }
 
 /* Container styling - areas */
-div.bar {
-    display: inline-block;
-    width: 20px;
-    height: 75px; /* We'll override height later */
-    background-color: : teal;
-    margin-right: 2px;
-}
-
 div.container{
     width: 1010px;
 }
@@ -154,6 +146,14 @@ div.transbox ul {
 
 div.transbox svg{
 	margin-left: 80px;
+}
+
+div.container.bar {
+    display: inline-block;
+    width: 20px;
+    height: 75px; /* We'll override height later */
+    background-color: blue;
+    margin-right: 2px;
 }
 
 div.jumbotron.img {
