@@ -39,6 +39,8 @@ a:hover:not(.active) {
     text-decoration: none;
 }
 
+
+
 #menu {
     font-size: 16px;
     text-align: center;
@@ -116,6 +118,14 @@ div.scriptbox p {
     padding-bottom: 10px;
 }
 
+#rectWork,
+#circleWork, 
+#bars,
+#count div {
+    padding-bottom: 30px;
+
+}
+
 div.transbox p3 {
 	color:grey;
 	font-size: 15px;
@@ -150,10 +160,12 @@ div.transbox svg{
 
 div.container.bar {
     display: inline-block;
-    width: 20px;
+    width: 15px;
     height: 75px; /* We'll override height later */
     background-color: blue;
-    margin-right: 2px;
+    margin-left: 2px;
+    margin-bottom: 40px;
+    margin-top: 40px;
 }
 
 div.jumbotron.img {

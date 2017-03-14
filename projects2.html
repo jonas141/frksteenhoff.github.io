@@ -2,12 +2,14 @@
 <body background="images/network_background.jpg">
 	<head>
 		<meta charset="utf-8">
+		<!-- Files importet from external sources -->
+  		<link rel="stylesheet" type="text/css" href="stylesheets/style.css">
 		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="stylesheets/style.css">
-		  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   		<script type="text/javascript" src="d3/d3.js"></script>
+
 		<title>Course work</title>
 	</head>
 		<div id='menu'>
@@ -24,151 +26,51 @@
 				Course work: 02806 - Social Data Analysis
 				</h3>
 		</div></div>
+<!-- Interactive graph -->
 	<div class="container">
 		<div class="transbox">
-			<h3>SVG</h3>		
-			<p>Right now, I'm learning about SVG elements and how they work. The following is just a couple of SVG-elements (circles) where I changed the opacity and used the computer graphics coordinates to position the circles such that they overlap as can be seen below.</p>
-		<element>
-			<svg width="500" height="150">
-				<circle cx="50" cy="75" r="50" fill="rgba(128, 0, 128, 1.0)"/>
-				<circle cx="100" cy="75" r="50" fill="rgba(0, 0, 255, 0.75)"/>
-				<circle cx="150" cy="75" r="50" fill="rgba(0, 255, 0, 0.5)"/>
-				<circle cx="200" cy="75" r="50" fill="rgba(255, 255, 0, 0.25)"/>
-				<circle cx="250" cy="75" r="50" fill="rgba(255, 0, 0, 0.1)"/>
-			</svg>
-		</element>
-	</div></div>
+			<h3>Interactive graphs with d3</h3>
+			<p>The following D3-element is added from "Interactive Data Visualization for the Web" by Scott Murray and revised to fit my own material.</p>	
+			<center><div id="graph"></div></center>
+		</div>
+	</div>
 
-<!-- Interactive graph -->
-<div class="container">
-	<div class="transbox">
-		<h3>Interactive graphs with d3</h3>
-		<p>The following D3-element is added from "Interactive Data Visualization for the Web" by Scott Murray and revised to fit my own material.</p>	
-		</div></div>
-		<br></br>
-		<script type="text/javascript">
-			//Width and height
-			var w = 1200;
-			var h = 400;
-			//Original data
-			var dataset = {
-				nodes: [
-					{ name: "Adam" },
-					{ name: "Bob" },
-					{ name: "Carrie" },
-					{ name: "Donovan" },
-					{ name: "Edward" },
-					{ name: "Felicity" },
-					{ name: "George" },
-					{ name: "Hannah" },
-					{ name: "Iris" },
-					{ name: "Jerry" },
-					{ name: "Henriette" },
-					{ name: "Josefine" },
-					{ name: "Caroline" },
-					{ name: "Katrine" }
-				],
-				edges: [
-					{ source: 0, target: 1 },
-					{ source: 0, target: 2 },
-					{ source: 0, target: 3 },
-					{ source: 0, target: 4 },
-					{ source: 1, target: 5 },
-					{ source: 1, target: 9 },
-					{ source: 2, target: 5 },
-					{ source: 2, target: 9 },
-					{ source: 3, target: 5 },
-					{ source: 3, target: 4 },
-					{ source: 5, target: 8 },
-					{ source: 5, target: 9 },
-					{ source: 6, target: 7 },
-					{ source: 7, target: 8 },
-					{ source: 8, target: 9 },
-					{ source: 8, target: 10 },
-					{ source: 10,  target: 4 },
-					{ source: 10, target: 12 },
-					{ source: 10, target: 7 },
-					{ source: 11, target: 13 },
-					{ source: 12,  target: 2 },
-					{ source: 13,  target: 5 }
-				]
-			};
-			//Initialize a default force layout, using the nodes and edges in dataset
-			var force = d3.layout.force()
-								 .nodes(dataset.nodes)
-								 .links(dataset.edges)
-								 .size([w, h])
-								 .linkDistance([70])
-								 .charge([-200])
-								 .start();
-			var colors = d3.scale.category10();
-			var colors = d3.scale.category10();
-			//Create SVG element
-			var svg = d3.select("body")
-						.append("svg")
-						.attr("width", w)
-						.attr("height", h);
-			
-			//Create edges as lines
-			var edges = svg.selectAll("line")
-				.data(dataset.edges)
-				.enter()
-				.append("line")
-				.style("stroke", "#fff")
-				.style("stroke-width", 1);
-			
-			//Create nodes as circles
-			var nodes = svg.selectAll("circle")
-				.data(dataset.nodes)
-				.enter()
-				.append("circle")
-				.attr("r", 14)
-				.style("fill", function(d, i) {
-					return colors(i);
-				})
-				.call(force.drag);
-			
-			//Every time the simulation "ticks", this will be called
-			force.on("tick", function() {
-				edges.attr("x1", function(d) { return d.source.x; })
-					 .attr("y1", function(d) { return d.source.y; })
-					 .attr("x2", function(d) { return d.target.x; })
-					 .attr("y2", function(d) { return d.target.y; });
-			
-				nodes.attr("cx", function(d) { return d.x; })
-					 .attr("cy", function(d) { return d.y; });
-			});
-		</script>
-	</div></div>
 	<!-- Printing array values -->
-		<div class="container">
+	<div class="container">
 		<div class="transbox">
-			<h3>JavaScript</h3>
+			<h3>JavaScript and SVG combined with D3</h3>		
+			<p>Right now, I'm learning about SVG elements and how they work. The following is just a couple of SVG-elements (circles) where I changed the opacity and used the computer graphics coordinates to position the circles such that they overlap as can be seen below.</p>
 			<p>Here I am trying to use JavaScript to make some functional work on an array of integers. Right now it is iterating over the values, printing a string and the number, I will try to make it more interesting!</p>
-		</div></div>
-		<script type="text/javascript">
-			// Working with chain syntax
-			var dataset = [ 0, 5, 10, 15, 20, 25 ];
-			d3.select("body").select("div")
-			.data(dataset)
-			.enter()
-			.append("div")
-			.attr("class", "container scriptbox")
-			.append("p")
-			.text(function(d) { return "I can count to " + d; })
-			.style("color", "blue");
-		</script>
-
-	<!-- Bar chart -->
-		<script type="text/javascript">
-			// Working with chain syntax
-			var dataset = [ 0, 5, 10, 15, 20, 25 ];
-			// D3 code to print
-			d3.select("body").select("div")
-			.data(dataset)
-			.enter()
-			.append("div")
-			.attr("class", "container bar");
-		</script>
-</body>
+			<element>
+		<h3>Manually creating SVG elements</h3>
+			<!-- Created manually -->
+				<svg width="500" height="150">
+					<circle cx="50" cy="75" r="50" fill="rgba(128, 0, 128, 1.0)"/>
+					<circle cx="100" cy="75" r="50" fill="rgba(0, 0, 255, 0.75)"/>
+					<circle cx="150" cy="75" r="50" fill="rgba(0, 255, 0, 0.5)"/>
+					<circle cx="200" cy="75" r="50" fill="rgba(255, 255, 0, 0.25)"/>
+					<circle cx="250" cy="75" r="50" fill="rgba(255, 0, 0, 0.1)"/>
+				</svg>
+			</element>
+		<!-- organizing all scripts -->
+		<h3>Creating rectangles</h3>
+			<center><div id="rectWork"></div></center>
+		<h3> Sizing circles</h3>
+			<center><div id="circleWork"></div></center>
+		<h3> Plotting bars</h3>
+			<center><div id="bars"></div></center>
+		<h3> Counting with a function</h3>
+			<center><div id="count"></div></center>
+		<h3> Scatter plot of SVG circles</h3>
+			<center><div id="scatter_circle"></div></center>
+		</div>
+	</div>
+	</body>
+  		<!-- My own scripts and files -->
+  		<script type="text/javascript" src="scripts/count.js"></script>
+		<script type="text/javascript" src="scripts/rect.js"></script>
+		<script type="text/javascript" src="scripts/circle.js"></script>
+		<script type="text/javascript" src="scripts/bars.js"></script>	
+		<script type="text/javascript" src="scripts/scatter.js"></script>	
+		<script type="text/javascript" src="scripts/graph.js"></script>	
 </html>
