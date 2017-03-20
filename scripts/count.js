@@ -5,4 +5,4 @@ d3.select("#count").selectAll("div")
 	.enter()
 	.append("div")
 	.text(function(d) { return "I can count to " + d; })
-	.style("color", "blue");
+	.style("color", "grey");

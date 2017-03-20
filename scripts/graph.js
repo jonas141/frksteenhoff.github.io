@@ -1,5 +1,5 @@
 	//Width and height
-	var w = 1200;
+	var w = 800;
 	var h = 400;
 	//Original data
 	var dataset = {
@@ -66,7 +66,7 @@
 		.data(dataset.edges)
 		.enter()
 		.append("line")
-		.style("stroke", "#000")
+		.style("stroke", "#dbdcdd")
 		.style("stroke-width", 1);
 	
 	//Create nodes as circles

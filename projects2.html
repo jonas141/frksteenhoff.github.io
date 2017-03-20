@@ -9,7 +9,6 @@
   		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   		<script type="text/javascript" src="d3/d3.js"></script>
-
 		<title>Course work</title>
 	</head>
 		<div id='menu'>
@@ -18,27 +17,28 @@
   				<li><a href="projects.html">Projects</a></li>
   				<li><a href="interests.html">Interests</a></li>
    				<li><a href="projects2.html">Course work</a></li>
+      			<li><a href="exercises.html">Exercises</a></li>
 			</ul>
 		</div>
 		<div class="container">
 			<div class="transbox">
-				<h3>
+				<h1>
 				Course work: 02806 - Social Data Analysis
-				</h3>
+				</h1>
 		</div></div>
-<!-- Interactive graph -->
+	<!-- Interactive graph -->
 	<div class="container">
 		<div class="transbox">
-			<h3>Interactive graphs with d3</h3>
+			<h2>Interactive graphs with d3</h2>
 			<p>The following D3-element is added from "Interactive Data Visualization for the Web" by Scott Murray and revised to fit my own material.</p>	
 			<center><div id="graph"></div></center>
 		</div>
 	</div>
 
-	<!-- Printing array values -->
+	<!-- ALL SVG ELEMENTS EXCEPT GRAPH -->
 	<div class="container">
 		<div class="transbox">
-			<h3>JavaScript and SVG combined with D3</h3>		
+			<h2>JavaScript and SVG combined with D3</h2>		
 			<p>Right now, I'm learning about SVG elements and how they work. The following is just a couple of SVG-elements (circles) where I changed the opacity and used the computer graphics coordinates to position the circles such that they overlap as can be seen below.</p>
 			<p>Here I am trying to use JavaScript to make some functional work on an array of integers. Right now it is iterating over the values, printing a string and the number, I will try to make it more interesting!</p>
 			<element>
@@ -52,7 +52,7 @@
 					<circle cx="250" cy="75" r="50" fill="rgba(255, 0, 0, 0.1)"/>
 				</svg>
 			</element>
-		<!-- organizing all scripts -->
+		<!-- Adding and organizing all external scripts -->
 		<h3>Creating rectangles</h3>
 			<center><div id="rectWork"></div></center>
 		<h3> Sizing circles</h3>
@@ -63,6 +63,13 @@
 			<center><div id="count"></div></center>
 		<h3> Scatter plot of SVG circles</h3>
 			<center><div id="scatter_circle"></div></center>
+		<h3> Scalable bar chart</h3>
+			<p2>Click on this text to update data values</p2>
+			<center><div id="bars_scale"></div></center>
+		<h3> Scalable scatter plot</h3>
+			<p3>Click on this text to update data points</p3>
+			<center><div id="scatter_scale"></div></center>
+			<br></br>
 		</div>
 	</div>
 	</body>
@@ -73,4 +80,6 @@
 		<script type="text/javascript" src="scripts/bars.js"></script>	
 		<script type="text/javascript" src="scripts/scatter.js"></script>	
 		<script type="text/javascript" src="scripts/graph.js"></script>	
+		<!--<script type="text/javascript" src="scripts/bars_scale.js"></script>-->
+		<script type="text/javascript" src="scripts/scatter_scale.js"></script>	
 </html>
