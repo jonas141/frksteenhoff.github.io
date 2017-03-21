@@ -1,23 +1,16 @@
 
 // Global variable
-var test_data;
+var data;
 
 // Reading in data from CSV file
-d3.csv("test_data.csv", function(data) { 
-	if(error) {
-		console.log(error);
-	} else {
-		console.log(test_data);
+d3.text("test_data.csv", function(rows) {
+	data = rows.split("\n");
 
-	test_data = data;
-
-	// Doing something with data
+	// Doing something with data (outputting)
 	d3.select("#exercise").selectAll("div")
-		.data(dataset)
+		.data(data)
 		.enter()
 		.append("div")
 		.text(function(d) { return "I can count to " + d; })
 		.style("color", "grey");
-	}
 });
-

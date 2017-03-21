@@ -58,7 +58,8 @@ a:hover:not(.active) {
 p,
 h1, 
 h2,
-h3 {
+h3, 
+h4 {
     color: grey;
     margin-left: 20px;
 }
