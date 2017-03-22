@@ -203,6 +203,18 @@ div.jumbotron.img {
     font-size: 16px;
 }
 
+.button_small {
+    background-color: #dbdcdd; /* Grey */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+
 #social,
 #buttons {
     font-size: 16px;
@@ -221,7 +233,11 @@ div.jumbotron.img {
 	padding-top: 30px; 
     padding-bottom: 30px;
 }
-
+button_small:hover,
 button:hover {
     background-color: #ffffff;
+}
+
+.button_small:active { 
+    background-color: #dbdcdd; /* Grey */
 }

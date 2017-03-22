@@ -9,6 +9,20 @@
   		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   		<script type="text/javascript" src="d3/d3.js"></script>
+
+		<style type="text/css">
+			.axis path,
+			.axis line {
+				fill: none;
+				stroke: black;
+				shape-rendering: crispEdges;
+			}
+			.axis text {
+				font-family: sans-serif;
+				font-size: 14px;
+			}
+		</style>
+
 		<title>Course work</title>
 	</head>
 		<div id='menu'>
@@ -28,10 +42,25 @@
 		</div></div>
 	<div class="container">
 		<div class="transbox">
+
 		<!-- Adding and organizing all external scripts -->
-		<h2>Working with San Fransisco Police Department's Crime Data</h2>
+		<h2>Crime data from San Fransisco Police Department</h2>
 		<h3>Visualization 1 - One scatter plot, two datasets</h3>
-		<p>Description of data + visualization</p>
+		<p>The interactive visualization below lets the user toggle between the crime data for years 2003 and 2015 by clicking on XX. In the plot, using 2015 as example, the number of crimes for the crime types Prostitution and "Vehicle Theft" is plotted against one another. As described by the axes, your relative height and width indicates the sum of Vehicle Theft and Prostitution, the higher/farther to the left you go, the more crimes of that type is commited. This means that district like Mission and Northern both have a relative high number of both Prostitution and Vehicle Thefts, whereas Tenderloin, has a relative high number of Prostitution cases, but not that many Vehicle Thefts. A general trend that can be deduced from this visualization is the fact that most district have close to zero Prostitution cases, but a relative high number of Vehicle Thefts. The district with the smallest number of Vehicle Thefts in 2015 is Tenderloin, while the smallest number of Prostitution Crimes is Park.</p>
+		<p>Comparing the two years, it can easily be seen that the number of crimes has fallen significantly from 2003 to 2015. Since the scales are fixed, just looking at the transition from far out data points to a small cluster all moving towards zero.</p>
+		<br></br>
+		<p3>Click here to toggle between data from 2003 and 2015</p3>
+		
+		<center><div id="scatter_crime"></div></center>
+		<div id='buttons'>
+			<ul>
+				<li><button class="button_small">
+				<p>2003</p> </button></li>
+				<li><button class="button_small">
+				<p>2015</p></button></li>
+			</ul>
+		</div>
+		</center>
 		<br></br>
 		<h3>Visualization 2 - D3 histogram</h3>
 		<p>Description of data + visualization</p>
@@ -49,4 +78,5 @@
 	</body>
   		<!-- My own scripts and files -->
   		<script type="text/javascript" src="scripts/exercises.js"></script>
+  		<script type="text/javascript" src="scripts/scatter_crime.js"></script>
 </html>

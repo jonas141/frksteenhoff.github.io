@@ -6,11 +6,11 @@
 			var dataset = [ 5, 10, 13, 19, 21, 25, 22, 18, 15, 13,
 							11, 12, 15, 20, 18, 17, 16, 18, 23, 25 ];
 
-			var xScale = d3.scale.ordinal()
+			var xScale_bar = d3.scale.ordinal()
 							.domain(d3.range(dataset.length))
 							.rangeRoundBands([0, w], 0.075);
 
-			var yScale = d3.scale.linear()
+			var yScale_bar = d3.scale.linear()
 							.domain([0, d3.max(dataset)])
 							.range([0, h]);
 			
@@ -26,14 +26,14 @@
 			   .enter()
 			   .append("rect")
 			   .attr("x", function(d, i) {
-			   		return xScale(i);
+			   		return xScale_bar(i);
 			   })
 			   .attr("y", function(d) {
-			   		return h - yScale(d);
+			   		return h - yScale_bar(d);
 			   })
-			   .attr("width", xScale.rangeBand())
+			   .attr("width", xScale_bar.rangeBand())
 			   .attr("height", function(d) {
-			   		return yScale(d);
+			   		return yScale_bar(d);
 			   })
 			   .attr("fill", function(d) {
 					return "rgb(0, " + (d * 10) + ", 0)";
@@ -49,10 +49,10 @@
 			   })
 			   .attr("text-anchor", "middle")
 			   .attr("x", function(d, i) {
-			   		return xScale(i) + xScale.rangeBand() / 2;
+			   		return xScale_bar(i) + xScale_bar.rangeBand() / 2;
 			   })
 			   .attr("y", function(d) {
-			   		return h - yScale(d) + 14;
+			   		return h - yScale_bar(d) + 14;
 			   })
 			   .attr("font-family", "sans-serif")
 			   .attr("font-size", "11px")
@@ -71,7 +71,7 @@
 				       dataset.push(newNum);
 					}
 					// Update scale domain
-					yScale.domain([0, d3.max(dataset)]);
+					yScale_bar.domain([0, d3.max(dataset)]);
 
 					// Update rects
 					svg.selectAll("rect")
@@ -85,10 +85,10 @@
 					//.ease("bounce") // fun but childish
 					.ease("elastic")  // one of the better options
 					.attr("y", function(d){
-					    return h - yScale(d);
+					    return h - yScale_bar(d);
 					})
 					.attr("height", function(d) {
-					    return yScale(d);
+					    return yScale_bar(d);
 					})
 					.attr("fill", function(d) {
 					    return "rgb(0, 0, " + (d * 10) + ")";
@@ -106,10 +106,10 @@
 				   	      return d;
 					   })
 					   .attr("x", function(d, i) {
-	  			   	      return xScale(i) + xScale.rangeBand() / 2;
+	  			   	      return xScale_bar(i) + xScale_bar.rangeBand() / 2;
 					   })
 			   		   .attr("y", function(d) {
-			   		   	  return h - yScale(d) + 14;
+			   		   	  return h - yScale_bar(d) + 14;
 			   		   });
 			   	});
 
