@@ -26,10 +26,10 @@
                        .projection(projection);
 
       //Create SVG element
-			var svg = d3.select("#geo_data")
-						.append("svg")
-						.attr("width", w)
-						.attr("height", h);
+		var svg = d3.select("#geo_data")
+					.append("svg")
+					.attr("width", w)
+					.attr("height", h);
 
       // Loading geodata
       d3.json("sfpddistricts.json", function(json) {
@@ -43,17 +43,17 @@
 
       // Loading crime data
       d3.json("model_data.json", function(data) {
-        // storing data
-        datapoints_k2 = data.datapoints.k2;
-        datapoints_k3 = data.datapoints.k3;
-        datapoints_k4 = data.datapoints.k4;
-        datapoints_k5 = data.datapoints.k5;
-        datapoints_k6 = data.datapoints.k6;
-        centroids_k2 = data.centroids.k2;
-        centroids_k3 = data.centroids.k3;
-        centroids_k4 = data.centroids.k4;
-        centroids_k5 = data.centroids.k5;
-        centroids_k6 = data.centroids.k6;
+        	// storing data
+      		datapoints_k2 = data.datapoints.k2;
+        	datapoints_k3 = data.datapoints.k3;
+        	datapoints_k4 = data.datapoints.k4;
+        	datapoints_k5 = data.datapoints.k5;
+        	datapoints_k6 = data.datapoints.k6;
+        	centroids_k2  = data.centroids.k2;
+        	centroids_k3  = data.centroids.k3;
+        	centroids_k4  = data.centroids.k4;
+        	centroids_k5  = data.centroids.k5;
+        	centroids_k6  = data.centroids.k6;
 
         // Drawing data
         svg.selectAll("k2data")
@@ -95,6 +95,9 @@
               .style("stroke-width","2")
               .style("opacity", 1);
 
-            // Change data on click
-
+/*            // Change data on click
+            d3.select("p2")
+            	.on("click", function()) {
+					this.id
+            	}*/
       });

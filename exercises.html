@@ -48,7 +48,9 @@
 			<br></br>
 			<button type="button_small" id=year_toggle><p3>Click here to toggle between data from 2003 and 2015</p3></button>
 			
-			<center><div id="scatter_crime"></div></center>
+			<!-- The script with data for the plot -->
+			<div id="scatter_crime"></div>
+
 			<br></br>
 			<p>The sizes of the different circle associated with each district name gives the relative size of the number of crimes commited as a fraction of the total number of crimes.</p>
 			<p>As described by the axes, your relative height and width indicates the sum of Vehicle Theft and Prostitution, the higher/farther to the left you go, the more crimes of that type is commited. This means that district like Mission and Northern both have a relative high number of both Prostitution and Vehicle Thefts, whereas Tenderloin, has a relative high number of Prostitution cases, but not that many Vehicle Thefts. A general trend that can be deduced from this visualization is the fact that most district have close to zero Prostitution cases, but a relative high number of Vehicle Thefts. The district with the smallest number of Vehicle Thefts in 2015 is Tenderloin, while the smallest number of Prostitution Crimes is Park.</p>
@@ -65,16 +67,18 @@
 			<div class="transbox">
 				<h3>Visualization 2B - geodata</h3>
 				<p>The following plot shows the geo locations of all crimes commited of type Prostiution in San Fransisco for the year xx. The basic plot shows the 'epicenters' of Prostitution when two clusters are generated from all the locations. By clicking on the buttons below the plot you can increase the number of clusters, at most 6.</p>
-				<!-- The geodata to visualize -->
-				<center><div id="geo_data"></div></center>
 
+				<!-- The geodata to visualize -->
+				<div id="geo_data"></div>
+
+				<!-- Buttons for toggling between different number of clusters -->
 				<div id='buttons'>
 					<ul>
-						<li><button class="buttonk" id=geo_k2><p>K2</p></button></li>
-						<li><button class="buttonk" id=geo_k3><p>K3</p></button></li>
-						<li><button class="buttonk" id=geo_k4><p>K4</p></button></li>
-						<li><button class="buttonk" id=geo_k5><p>K5</p></button></li>
-						<li><button class="buttonk" id=geo_k6><p>K6</p></button></li>
+						<li><button class="buttonk" id=geo_k2><p2>K2</p2></button></li>
+						<li><button class="buttonk" id=geo_k3><p2>K3</p2></button></li>
+						<li><button class="buttonk" id=geo_k4><p2>K4</p2></button></li>
+						<li><button class="buttonk" id=geo_k5><p2>K5</p2></button></li>
+						<li><button class="buttonk" id=geo_k6><p2>K6</p2></button></li>
 					</ul>
 				</div>
 			</div>

@@ -74,7 +74,7 @@ p2, p3 {
 	color:grey;
 	font-size: 15px;
     margin-left: 30px;
-    margin-left: 30px;
+    margin-right: 30px;
 }
 
 /* Container styling - areas */
@@ -226,7 +226,7 @@ button#year_toggle,
 .buttonk {
     padding-left: 10px;
     padding-right: 10px;
-    padding-bottom: 0px;
+    padding-bottom: 10px;
 }
 #social,
 #buttons {

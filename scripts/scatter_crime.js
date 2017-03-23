@@ -5,7 +5,7 @@ var dataset;        // taking value of one of the datasets
 var dataset1  = []; // 2003 values
 var dataset2  = []; // 2015 values
 var toggle    = 1;  // Switch between datasets
-var year      = 2015;
+var year      = 2003;
 var numberOfDistricts = 10 
 
 // Reading in data from CSV file
@@ -32,8 +32,8 @@ d3.text("crime_dict_all.csv", function(rows) {
 	//var numDataPoints = numberOfDistricts;
 	//var xRange   = d3.max(full_data[1]);
 	//var yRange   = d3.max(full_data[0]);
-	var w        = 900;
-	var h        = 600;
+	var w        = 800;
+	var h        = 500;
 	var padding  = 70;
 
 		//Create scale functions
@@ -123,12 +123,10 @@ d3.text("crime_dict_all.csv", function(rows) {
             .text("PROSTITUTION");
 
 		// Add plot title
-        svg.append("text1")
-            .attr("text-anchor", "middle") 
-            .attr("transform", "translate("+ (w / 2) +","+ (padding/2) +")")
-            .text("CRIME IN SAN FRANSISCO" + year);
-
-
+        svg.append("text")
+			.attr("class", "xy axis")
+            .attr("transform", "translate("+ (w / 3) +","+ (padding/2) +")")
+            .text("CRIME IN SAN FRANSISCO, " + year);
 
 		//On click, update with new data			
 		d3.select("#year_toggle")
@@ -137,11 +135,11 @@ d3.text("crime_dict_all.csv", function(rows) {
 				if (toggle == 1) {
 					dataset = dataset2;
 					toggle  = 0;
-					year    = 2003;
+					year    = 2015;
 				} else {
 					dataset = dataset1;
 					toggle = 1;
-					year   = 2015;
+					year   = 2003;
 				} 
 
 				//Update all circles
@@ -201,10 +199,10 @@ d3.text("crime_dict_all.csv", function(rows) {
 					.call(yAxis);       
 
 				//Update title
-				svg.select("text1")
+				svg.select(".xy.axis")
 			    	.transition()
 			    	.duration(1000)
-	   	            .attr("transform", "translate("+ (w / 2) +","+ (padding/2) +")")
-    		        .text("CRIME IN SAN FRANSISCO" + year); 	
+	   	            .attr("transform", "translate("+ (w / 3) +","+ (padding/2) +")")
+    		        .text("CRIME IN SAN FRANSISCO, " + year); 	
 			});
 });
