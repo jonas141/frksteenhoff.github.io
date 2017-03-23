@@ -123,15 +123,15 @@ d3.text("crime_dict_all.csv", function(rows) {
             .text("PROSTITUTION");
 
 		// Add plot title
-        svg.append("text")
+        svg.append("text1")
             .attr("text-anchor", "middle") 
             .attr("transform", "translate("+ (w / 2) +","+ (padding/2) +")")
-            .text("Crime in San Fransisco " + year);
+            .text("CRIME IN SAN FRANSISCO" + year);
 
 
 
 		//On click, update with new data			
-		d3.select("p3")
+		d3.select("#year_toggle")
 			.on("click", function() {
 				// Oscillating between the two datasets
 				if (toggle == 1) {
@@ -199,5 +199,12 @@ d3.text("crime_dict_all.csv", function(rows) {
 			    	.transition()
 			    	.duration(1000)
 					.call(yAxis);       
+
+				//Update title
+				svg.select("text1")
+			    	.transition()
+			    	.duration(1000)
+	   	            .attr("transform", "translate("+ (w / 2) +","+ (padding/2) +")")
+    		        .text("CRIME IN SAN FRANSISCO" + year); 	
 			});
 });

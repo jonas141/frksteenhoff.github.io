@@ -61,7 +61,8 @@ h2,
 h3, 
 h4 {
     color: grey;
-    margin-left: 20px;
+    margin-left:  30px;
+    margin-right: 30px;
 }
 
 p1 {
@@ -72,7 +73,8 @@ p1 {
 p2, p3 {
 	color:grey;
 	font-size: 15px;
-    margin-left: 20px;
+    margin-left: 30px;
+    margin-left: 30px;
 }
 
 /* Container styling - areas */
@@ -83,7 +85,7 @@ div.container{
 }
 
 div.container h3{
-	margin-top: 10px;
+	margin-top: 20px;
 }
 
 div.scriptbox {
@@ -97,13 +99,9 @@ div.scriptbox {
 
 div.transbox {
 	margin-top: 0px;
-	margin-right: 20px;
-	margin-left: 0px;
 	background-color: #ffffff;
 	opacity: 0.8;
 	filter: alpha(opacity=80); /* For IE8 and earlier */
-    margin-bottom: 20px;
-
 }
 
 #text, 
@@ -111,10 +109,11 @@ div.transbox p,
 div.scriptbox p {
 	color: #000000;
     font-size: 18px;
-  	margin-left:  20px;
-  	margin-right: 20px;
+  	margin-left:  30px;
+  	margin-right: 30px;
     margin-bottom: 0px;
     padding-bottom: 10px;
+    line-height: 110%;
 }
 
 #rectWork,
@@ -127,41 +126,44 @@ div.scriptbox p {
 }
 
 div.transbox p3 {
-	color:grey;    
-	font-size: 15px;
-	margin-right: 20px;
-    margin-left: 20px;
+    color:grey;    
+    font-size: 15px;
+}
+
+button#year_toggle,
+div.transbox,
+div.transbox p3,
+div.transbox ul,
+div.transbox h1,
+div.transbox h2 {
+	margin-right:  30px;
+    margin-left:   30px;
     margin-bottom: 20px;	
 }
 
 div.transbox h1 {
-    margin-left: 20px;
     padding-bottom: 10px;
     padding-top: 10px;
 }
 
 div.transbox h2 {
-    color: #000000;
     font-size: 25px;
     padding-top: 20px;
     padding-bottom: 10px;
-    margin-left: 20px;
     font-weight: bold;
 }
 
 div.transbox h3 {
-    color: #000000;
     font-size: 20px;
     padding-top: 20px;
     padding-bottom: 10px;
-    margin-left: 20px;
     font-weight: bold;
 }
 
+div.transbox h2,
+div.transbox h3,
 div.transbox ul {
     color: #000000;
-  	margin-left: 20px;
-  	margin-right: 20px;
 }
 
 div.transbox svg{
@@ -203,6 +205,7 @@ div.jumbotron.img {
     font-size: 16px;
 }
 
+button#year_toggle,
 .button_small {
     background-color: #dbdcdd; /* Grey */
     border: none;
@@ -233,11 +236,14 @@ div.jumbotron.img {
 	padding-top: 30px; 
     padding-bottom: 30px;
 }
+
+button#year_toggle:hover ,
 button_small:hover,
 button:hover {
     background-color: #ffffff;
 }
 
+button#year_toggle:active,
 .button_small:active { 
     background-color: #dbdcdd; /* Grey */
 }

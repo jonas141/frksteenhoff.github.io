@@ -46,22 +46,20 @@
 		<!-- Adding and organizing all external scripts -->
 		<h2>Crime data from San Fransisco Police Department</h2>
 		<h3>Visualization 1 - One scatter plot, two datasets</h3>
-		<p>The interactive visualization below lets the user toggle between the crime data for years 2003 and 2015 by clicking on XX. In the plot, using 2015 as example, the number of crimes for the crime types Prostitution and "Vehicle Theft" is plotted against one another. As described by the axes, your relative height and width indicates the sum of Vehicle Theft and Prostitution, the higher/farther to the left you go, the more crimes of that type is commited. This means that district like Mission and Northern both have a relative high number of both Prostitution and Vehicle Thefts, whereas Tenderloin, has a relative high number of Prostitution cases, but not that many Vehicle Thefts. A general trend that can be deduced from this visualization is the fact that most district have close to zero Prostitution cases, but a relative high number of Vehicle Thefts. The district with the smallest number of Vehicle Thefts in 2015 is Tenderloin, while the smallest number of Prostitution Crimes is Park.</p>
-		<p>Comparing the two years, it can easily be seen that the number of crimes has fallen significantly from 2003 to 2015. Since the scales are fixed, just looking at the transition from far out data points to a small cluster all moving towards zero.</p>
+		<p>The interactive visualization below lets the user toggle between the crime data for years 2003 and 2015 by clicking on the button above the plot. In the plot, the total number of crimes commited in the crime types "Prostitution" and "Vehicle Theft" in San Fransisco is plotted against one another. Using 2003 -- the current year shown, as example, how to read and understand the graph and some of the results from the graph will be explained.</p>
 		<br></br>
-		<p3>Click here to toggle between data from 2003 and 2015</p3>
+		<button type="button_small" id=year_toggle><p3>Click here to toggle between data from 2003 and 2015</p3></button>
 		
 		<center><div id="scatter_crime"></div></center>
-		<div id='buttons'>
-			<ul>
-				<li><button class="button_small">
-				<p>2003</p> </button></li>
-				<li><button class="button_small">
-				<p>2015</p></button></li>
-			</ul>
-		</div>
-		</center>
 		<br></br>
+		<p>The sizes of the different circle associated with each district name gives the relative size of the number of crimes commited as a fraction of the total number of crimes.</p>
+		<p>As described by the axes, your relative height and width indicates the sum of Vehicle Theft and Prostitution, the higher/farther to the left you go, the more crimes of that type is commited. This means that district like Mission and Northern both have a relative high number of both Prostitution and Vehicle Thefts, whereas Tenderloin, has a relative high number of Prostitution cases, but not that many Vehicle Thefts. A general trend that can be deduced from this visualization is the fact that most district have close to zero Prostitution cases, but a relative high number of Vehicle Thefts. The district with the smallest number of Vehicle Thefts in 2015 is Tenderloin, while the smallest number of Prostitution Crimes is Park.</p>
+		<p>Since the scales are fixed, just looking at the transition between the two year give a pretty good idea of what has happened. Comparing the two years, it can easily be seen that the number of both crimes has fallen significantly from 2003 to 2015. Prostitution has almost been completely out-phased -- notice how Northern, Mission and Tenderloin all take huge leaps to the left and Ingleside and Bayview move downwards all while the circle radii decreases. The least changed are seen in the distric that already had low crime rates. </p>
+
+		<br></br>
+		<p><strong>Why keep axes fixed?</strong></p>
+		<p>When the axes have a fixes size, it is easier to compare the different values, as the scaling won't center in and fit onto just one set of data. This way, when toggling through the two sets of values it is really easy to be able to say something about the number of crimes both as a whole and individually.</p<p>Even though we have been taught how to scale the axes to each plot it might not be the bes technique for our application since comparing should be done on equal condition.</p>
+
 		<h3>Visualization 2 - D3 histogram</h3>
 		<p>Description of data + visualization</p>
 		<br></br>
