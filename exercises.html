@@ -9,7 +9,6 @@
   		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   		<script type="text/javascript" src="d3/d3.js"></script>
-
 		<style type="text/css">
 			.axis path,
 			.axis line {
@@ -36,45 +35,72 @@
 		</div>
 		<div class="container">
 			<div class="transbox">
-				<h1>
-				Course work: 02806 - Social Data Analysis
-				</h1>
-		</div></div>
-	<div class="container">
-		<div class="transbox">
-
-		<!-- Adding and organizing all external scripts -->
-		<h2>Crime data from San Fransisco Police Department</h2>
-		<h3>Visualization 1 - One scatter plot, two datasets</h3>
-		<p>The interactive visualization below lets the user toggle between the crime data for years 2003 and 2015 by clicking on the button above the plot. In the plot, the total number of crimes commited in the crime types "Prostitution" and "Vehicle Theft" in San Fransisco is plotted against one another. Using 2003 -- the current year shown, as example, how to read and understand the graph and some of the results from the graph will be explained.</p>
-		<br></br>
-		<button type="button_small" id=year_toggle><p3>Click here to toggle between data from 2003 and 2015</p3></button>
-		
-		<center><div id="scatter_crime"></div></center>
-		<br></br>
-		<p>The sizes of the different circle associated with each district name gives the relative size of the number of crimes commited as a fraction of the total number of crimes.</p>
-		<p>As described by the axes, your relative height and width indicates the sum of Vehicle Theft and Prostitution, the higher/farther to the left you go, the more crimes of that type is commited. This means that district like Mission and Northern both have a relative high number of both Prostitution and Vehicle Thefts, whereas Tenderloin, has a relative high number of Prostitution cases, but not that many Vehicle Thefts. A general trend that can be deduced from this visualization is the fact that most district have close to zero Prostitution cases, but a relative high number of Vehicle Thefts. The district with the smallest number of Vehicle Thefts in 2015 is Tenderloin, while the smallest number of Prostitution Crimes is Park.</p>
-		<p>Since the scales are fixed, just looking at the transition between the two year give a pretty good idea of what has happened. Comparing the two years, it can easily be seen that the number of both crimes has fallen significantly from 2003 to 2015. Prostitution has almost been completely out-phased -- notice how Northern, Mission and Tenderloin all take huge leaps to the left and Ingleside and Bayview move downwards all while the circle radii decreases. The least changed are seen in the distric that already had low crime rates. </p>
-
-		<br></br>
-		<p><strong>Why keep axes fixed?</strong></p>
-		<p>When the axes have a fixes size, it is easier to compare the different values, as the scaling won't center in and fit onto just one set of data. This way, when toggling through the two sets of values it is really easy to be able to say something about the number of crimes both as a whole and individually.</p<p>Even though we have been taught how to scale the axes to each plot it might not be the bes technique for our application since comparing should be done on equal condition.</p>
-
-		<h3>Visualization 2 - D3 histogram</h3>
-		<p>Description of data + visualization</p>
-		<br></br>
+				<h1>Course work: 02806 - Social Data Analysis</h1>
+			</div>
 		</div>
 
 	<div class="container">
 		<div class="transbox">
-		<!-- Adding and organizing all external scripts -->
-		<h3>Exercises - reading in data with D3</h3>
-			<center><div id="exercise"></div></center>
+			<!-- Adding and organizing all external scripts -->
+			<h2>Crime data from San Fransisco Police Department</h2>
+			<h3>Visualization 2A - One scatter plot, two datasets</h3>
+			<p>The interactive visualization below lets the user toggle between the crime data for years 2003 and 2015 by clicking on the button above the plot. The plot visualizes the total number of crimes commited for the crime types "Prostitution" and "Vehicle Theft" in San Fransisco. Using the current year (2003) as example, how to read and understand the graph will be explained by comments to some of the results.</p>
+			<br></br>
+			<button type="button_small" id=year_toggle><p3>Click here to toggle between data from 2003 and 2015</p3></button>
+			
+			<center><div id="scatter_crime"></div></center>
+			<br></br>
+			<p>The sizes of the different circle associated with each district name gives the relative size of the number of crimes commited as a fraction of the total number of crimes.</p>
+			<p>As described by the axes, your relative height and width indicates the sum of Vehicle Theft and Prostitution, the higher/farther to the left you go, the more crimes of that type is commited. This means that district like Mission and Northern both have a relative high number of both Prostitution and Vehicle Thefts, whereas Tenderloin, has a relative high number of Prostitution cases, but not that many Vehicle Thefts. A general trend that can be deduced from this visualization is the fact that most district have close to zero Prostitution cases, but a relative high number of Vehicle Thefts. The district with the smallest number of Vehicle Thefts in 2015 is Tenderloin, while the smallest number of Prostitution Crimes is Park.</p>
+			<p>Since the scales are fixed, just looking at the transition between the two year give a pretty good idea of what has happened. Comparing the two years, it can easily be seen that the number of both crimes has fallen significantly from 2003 to 2015. Prostitution has almost been completely out-phased -- notice how Northern, Mission and Tenderloin all take huge leaps to the left and Ingleside and Bayview move downwards all while the circle radii decreases. The least changed are seen in the distric that already had low crime rates. </p>
+			<br></br>
+			
+			<p><strong>Why keep axes fixed?</strong></p>
+			<p>When the axes have a fixes size, it is easier to compare the different values, as the scaling won't center in and fit onto just one set of data. This way, when toggling through the two sets of values it is really easy to be able to say something about the number of crimes both as a whole and individually.</p<p>Even though we have been taught how to scale the axes to each plot it might not be the bes technique for our application since comparing should be done on equal condition.</p>
 			<br></br>
 		</div>
 	</div>
+
+		<div class="container">
+			<div class="transbox">
+				<h3>Visualization 2B - geodata</h3>
+				<p>The following plot shows the geo locations of all crimes commited of type Prostiution in San Fransisco for the year xx. The basic plot shows the 'epicenters' of Prostitution when two clusters are generated from all the locations. By clicking on the buttons below the plot you can increase the number of clusters, at most 6.</p>
+				<!-- The geodata to visualize -->
+				<center><div id="geo_data"></div></center>
+
+				<div id='buttons'>
+					<ul>
+						<li><button class="buttonk" id=geo_k2><p>K2</p></button></li>
+						<li><button class="buttonk" id=geo_k3><p>K3</p></button></li>
+						<li><button class="buttonk" id=geo_k4><p>K4</p></button></li>
+						<li><button class="buttonk" id=geo_k5><p>K5</p></button></li>
+						<li><button class="buttonk" id=geo_k6><p>K6</p></button></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+
+
+
+<!--	<h3>Visualization 2 - D3 histogram</h3>
+			<p>Description of data + visualization</p>
+			<h3> Scalable bar chart</h3>
+			<button type="button_small" id=bar_toggle><p3>Click here to toggle between data from 2003 and 2015</p3></button>
+			<center><div id="bars_scale"></div></center>
+			<br></br>
+		</div>
+
+		<div class="container">
+			<div class="transbox">
+				<h3>Exercises - reading in data with D3</h3>
+				<center><div id="exercise"></div></center>
+				<br></br>
+			</div>
+		</div>-->
 	</body>
   		<!-- My own scripts and files -->
   		<script type="text/javascript" src="scripts/exercises.js"></script>
   		<script type="text/javascript" src="scripts/scatter_crime.js"></script>
+  		<script type="text/javascript" src="scripts/geo_data.js"></script>-->
 </html>
