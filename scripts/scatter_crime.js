@@ -123,7 +123,8 @@ d3.text("crime_dict_all.csv", function(rows) {
         svg.append("text")
 			.attr("class", "xy axis")
             .attr("transform", "translate("+ (w / 3) +","+ (padding/2) +")")
-            .text("CRIME IN SAN FRANSISCO, " + year);
+            .text("CRIME IN SAN FRANSISCO, " + year)
+            .style("font-size", "16px");
 
 		//On click, update with new data			
 		d3.select("#year_toggle")
@@ -200,6 +201,7 @@ d3.text("crime_dict_all.csv", function(rows) {
 			    	.transition()
 			    	.duration(1000)
 	   	            .attr("transform", "translate("+ (w / 3) +","+ (padding/2) +")")
-    		        .text("CRIME IN SAN FRANSISCO, " + year); 	
+    		        .text("CRIME IN SAN FRANSISCO, " + year)
+    		        .style("font-size", "16px"); 	
 			});
 });

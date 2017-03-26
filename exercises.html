@@ -36,7 +36,7 @@
 		</div>
 		<div class="container">
 			<div class="transbox">
-				<h1>Course work: 02806 - Social Data Analysis</h1>
+				<h1>02806 - Social Data Analysis: Assignment 2</h1>
 			</div>
 		</div>
 
@@ -44,22 +44,25 @@
 		<div class="transbox">
 			<!-- Adding and organizing all external scripts -->
 			<h2>Crime data from San Fransisco Police Department</h2>
+			<p>This page documents the two exercises in Assignment 2 in the course 02806 - Social Data Analysis, spring semester 2017. The data used for visualization is gathered from <a src="https://data.sfgov.org/">San Fransisco OpenData</a> and is used for learning purposes working with data driven visualizations in D3.</p>
+
 			<h3>Visualization 2A - One scatter plot, two datasets</h3>
-			<p>The interactive visualization below lets the user toggle between the crime data for years 2003 and 2015 by clicking on the button above the plot. The plot visualizes the total number of crimes commited for the crime types "Prostitution" and "Vehicle Theft" in San Fransisco. Using the current year (2003) as example, how to read and understand the graph will be explained by comments to some of the results.</p>
+			<p>The plot below visualizes the total number of crimes commited for the crime types "Prostitution" and "Vehicle Theft" in San Fransisco. The interactive visualization enables the user to toggle between the crime data for years 2003 and 2015 by clicking on the button above the plot. By using the year currently displayed (2003) as example, how to understand the graph and what results can be extracted from it will be explained.</p>
 			<br></br>
 			<button type="button_small" id=year_toggle><p3>Click here to toggle between data from 2003 and 2015</p3></button>
 			
 			<!-- The script with data for the plot -->
-			<div id="scatter_crime"></div>
+			<center><div id="scatter_crime"></div></center>
 
 			<br></br>
-			<p>The sizes of the different circle associated with each district name gives the relative size of the number of crimes commited as a fraction of the total number of crimes.</p>
-			<p>As described by the axes, your relative height and width indicates the sum of Vehicle Theft and Prostitution, the higher/farther to the left you go, the more crimes of that type is commited. This means that district like Mission and Northern both have a relative high number of both Prostitution and Vehicle Thefts, whereas Tenderloin, has a relative high number of Prostitution cases, but not that many Vehicle Thefts. A general trend that can be deduced from this visualization is the fact that most district have close to zero Prostitution cases, but a relative high number of Vehicle Thefts. The district with the smallest number of Vehicle Thefts in 2015 is Tenderloin, while the smallest number of Prostitution Crimes is Park.</p>
-			<p>Since the scales are fixed, just looking at the transition between the two year give a pretty good idea of what has happened. Comparing the two years, it can easily be seen that the number of both crimes has fallen significantly from 2003 to 2015. Prostitution has almost been completely out-phased -- notice how Northern, Mission and Tenderloin all take huge leaps to the left and Ingleside and Bayview move downwards all while the circle radii decreases. The least changed are seen in the distric that already had low crime rates. </p>
+			<p>The sizes of the different circles associated with each district gives the relative size of the number of crimes commited as a fraction of the total number of crimes.</p>
+			<p>As described by the axes, the height and width indicates the sum of Vehicle Theft and Prostitution. The higher/farther you move away from Origo, the more crimes of both types are commited. This means that district like Mission and Northern both have a relative high number of both Prostitution and Vehicle Thefts, whereas Tenderloin has a relative high number of Prostitution cases, but not that many Vehicle Thefts. A general trend that can be deduced from this visualization is the fact that most district have close to zero Prostitution cases, but a relative high number of Vehicle Thefts. The district with the smallest number of Vehicle Thefts in 2015 is Tenderloin, while the smallest number of Prostitution Crimes is Park.</p>
+			<p>Since the scales are fixed, just looking at the transition between the two year give a pretty good idea of what has happened. Comparing the two years, it can easily be seen that the number of both crime types has fallen significantly from 2003 to 2015. Prostitution has almost been completely out-phased -- notice how Northern, Mission and Tenderloin all take huge leaps to the left and Ingleside and Bayview move downwards all while the circle radii decreases. The least changes are seen in the distric that already had low crime rates, i.e Park, Richmond and Central. </p>
 			<br></br>
 			
 			<p><strong>Why keep axes fixed?</strong></p>
-			<p>When the axes have a fixes size, it is easier to compare the different values, as the scaling won't center in and fit onto just one set of data. This way, when toggling through the two sets of values it is really easy to be able to say something about the number of crimes both as a whole and individually.</p<p>Even though we have been taught how to scale the axes to each plot it might not be the bes technique for our application since comparing should be done on equal condition.</p>
+			<p>Even though we have learned how to scale the axis according to each input dataset, this is not always the most approporiate way to visualize data. It is smart if you have randomly generated data which can vary a lot in range, but since we are trying to make a comparison between to different years, it will be easier to say something informative about the difference if we weigh the two years on an "equal scale".</p> 
+			<p>When the axes have a fixes size, it is easier to compare the different values, as the scaling won't center in and fit onto just one set of data. This way, when toggling through the two sets of values it is really easy to be able to say something about the number of crimes both as a whole and individually.</p>
 			<br></br>
 		</div>
 	</div>
@@ -67,13 +70,13 @@
 		<div class="container">
 			<div class="transbox">
 				<h3>Visualization 2B - geodata</h3>
-				<p>The following plot shows the geo locations of all crimes commited of type Prostitution in San Fransisco for the year xx. The basic plot shows the 'epicenters' of Prostitution when two clusters are generated based on all given locations. By clicking on the buttons below the plot, you can increase the number of clusters, at most 6 clusters.</p>
+				<p>The following plot shows the geo locations of all crimes commited of type Prostitution in San Fransisco for the year xx. The basic plot shows the 'epicenters' of Prostitution when two clusters are generated based on all given locations. By clicking on the buttons below the plot, you can change the number of clusters -- data is available for at most 6 clusters.</p>
 
 				<!-- The geodata to visualize -->
 				<div id="geo_data"></div>
 
 				<!-- Buttons for toggling between different number of clusters -->
-				<h4><strong>Choose a number of clusters</strong><h4>
+				<p><strong>Choose a number of clusters</strong><p>
 				<div id='buttons'>
 					<ul>
 						<li><button class="buttonk" onclick="updateData(2)"><p2>K2</p2></button></li>
@@ -82,8 +85,8 @@
 						<li><button class="buttonk" onclick="updateData(5)"><p2>K5</p2></button></li>
 						<li><button class="buttonk" onclick="updateData(6)"><p2>K6</p2></button></li>
 					</ul>
-					<br></br>
 				</div>
+				<p>When looking at the different years ..</p>
 			</div>
 		</div>
 

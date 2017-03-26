@@ -89,7 +89,8 @@ function updateData(noOfClusters) {
       svg.append("text")
         .attr("class", "xy axis")
         .attr("transform", "translate("+ (w / 4) +","+ 50 +")")
-        .text("PROSTITUTION IN SAN FRANSISCO, " + noOfClusters + " CLUSTERS");
+        .text("PROSTITUTION IN SAN FRANSISCO, " + noOfClusters + " CLUSTERS")
+        .style("font-size", "16px");
 
     // Drawing data on map
     svg.selectAll("k2data")

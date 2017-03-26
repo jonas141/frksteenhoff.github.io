@@ -84,6 +84,10 @@ div.container{
     padding-bottom: 20px;
 }
 
+p a {
+    display: inline;
+}
+
 div.container h3{
 	margin-top: 20px;
 }
@@ -113,7 +117,7 @@ div.scriptbox p {
   	margin-right: 30px;
     margin-bottom: 0px;
     padding-bottom: 10px;
-    line-height: 110%;
+    line-height: 130%;
 }
 
 #rectWork,
@@ -171,10 +175,6 @@ div.transbox ul {
     color: #000000;
 }
 
-div.transbox svg{
-	margin-left: 80px;
-}
-
 div.container.bar {
     display: inline-block;
     width: 15px;
@@ -183,7 +183,7 @@ div.container.bar {
     margin-left: 2px;
     margin-bottom: 40px;
     margin-top: 40px;
-}
+}   
 
 div.jumbotron.img {
 	margin-right: 30px;
@@ -224,8 +224,8 @@ button#year_toggle,
 }
 
 .buttonk {
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
     padding-bottom: 10px;
 }
 #social,
