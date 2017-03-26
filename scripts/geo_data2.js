@@ -115,7 +115,7 @@ function updateData(noOfClusters) {
         centroids  = centroids_k6;
     }
 
-    // Drawing data on map
+    // Drawing data
     svg.selectAll("k2data")
        .data(datapoints)
        .enter()
@@ -147,11 +147,8 @@ function updateData(noOfClusters) {
 
        })
        .style("opacity", 0.6);
-
-       // Removing all centroids when repainting
-       d3.select("k2centroids").remove();
-       // Drawing centroids w. stroke
-       svg.selectAll("k2centroids")
+       // Drawing data - centroids w. stroke
+       svg.selectAll("kcentroids")
           .data(centroids)
           .enter()
           .append("circle")
