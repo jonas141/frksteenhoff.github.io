@@ -1,5 +1,5 @@
 <html>
-<body background="images/network_background.jpg">
+<body background-color: "grey">
 	<head>
 		<meta charset="utf-8">
 		<!-- Files importet from external sources -->
@@ -10,6 +10,7 @@
   		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   		<script type="text/javascript" src="d3/d3.js"></script>
 		<style type="text/css">
+			body {background-color: lightgrey;}
 			.axis path,
 			.axis line {
 				fill: none;
@@ -72,6 +73,7 @@
 				<div id="geo_data"></div>
 
 				<!-- Buttons for toggling between different number of clusters -->
+				<h4><strong>Choose a number of clusters</strong><h4>
 				<div id='buttons'>
 					<ul>
 						<li><button class="buttonk" onclick="updateData(2)"><p2>K2</p2></button></li>
@@ -80,6 +82,7 @@
 						<li><button class="buttonk" onclick="updateData(5)"><p2>K5</p2></button></li>
 						<li><button class="buttonk" onclick="updateData(6)"><p2>K6</p2></button></li>
 					</ul>
+					<br></br>
 				</div>
 			</div>
 		</div>

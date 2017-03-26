@@ -1,7 +1,7 @@
 // Visualizing geo data
 	// Width and height
-	var w = 600;
-	var h = 300;
+	var w = 900;
+	var h = 600;
 
   // Global variables for data
   var datapoints_k2;
@@ -19,7 +19,7 @@
       var projection = d3.geo.mercator()
                              .center([-122.433701, 37.767683])
                              .translate([w/2, h/2])
-                             .scale([100000]);
+                             .scale([200000]);
 
       // Path variable
       var path = d3.geo.path()
@@ -46,7 +46,7 @@
         	// Storing data
         	// Datapoints for the clusters
       		datapoints_k2 = cluster_data.datapoints.k2;
-            datapoints_k3 = cluster_data.datapoints.k3;
+          datapoints_k3 = cluster_data.datapoints.k3;
         	datapoints_k4 = cluster_data.datapoints.k4;
         	datapoints_k5 = cluster_data.datapoints.k5;
         	datapoints_k6 = cluster_data.datapoints.k6;
@@ -54,13 +54,15 @@
         	centroids_k2  = cluster_data.centroids.k2;
         	centroids_k3  = cluster_data.centroids.k3;
         	centroids_k4  = cluster_data.centroids.k4;
-            centroids_k5  = cluster_data.centroids.k5;
+          centroids_k5  = cluster_data.centroids.k5;
         	centroids_k6  = cluster_data.centroids.k6;
 
-      // Setting initial number of clusters (showing as page is loaded first time)
+      // Using data update function to set initial data material
+      // Setting initial number of clusters to 2 (showing as page is loaded first time)
       updateData(2);
       });
 
+// Function to update/select correct data when button is clicked
 function updateData(noOfClusters) {
     // Defining data to use for each button clicked
     if (noOfClusters == 2) {
@@ -79,6 +81,15 @@ function updateData(noOfClusters) {
         datapoints = datapoints_k6;
         centroids  = centroids_k6;
     }
+
+       // Removing all previous text when repainting
+       svg.selectAll("text").remove();
+
+      // Add plot title
+      svg.append("text")
+        .attr("class", "xy axis")
+        .attr("transform", "translate("+ (w / 4) +","+ 50 +")")
+        .text("PROSTITUTION IN SAN FRANSISCO, " + noOfClusters + " CLUSTERS");
 
     // Drawing data on map
     svg.selectAll("k2data")
@@ -112,8 +123,9 @@ function updateData(noOfClusters) {
        })
        .style("opacity", 0.6);
 
-       // Removing all centroids when repainting
+       // Removing all previous centroids when repainting
        svg.selectAll("circle.centroids").remove();
+
        // Drawing centroids w. stroke
        svg.selectAll("k2centroids")
           .data(centroids)

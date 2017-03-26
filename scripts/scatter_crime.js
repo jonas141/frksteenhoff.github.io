@@ -29,9 +29,6 @@ d3.text("crime_dict_all.csv", function(rows) {
 	}
 
 	// Variables
-	//var numDataPoints = numberOfDistricts;
-	//var xRange   = d3.max(full_data[1]);
-	//var yRange   = d3.max(full_data[0]);
 	var w        = 800;
 	var h        = 500;
 	var padding  = 70;
