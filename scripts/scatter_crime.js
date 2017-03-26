@@ -147,7 +147,7 @@ d3.text("crime_dict_all.csv", function(rows) {
 				   .duration(800)
 				   .each("start", function() {
 			     	  d3.select(this)
-				   	  .attr("fill", "grey")
+				   	  .attr("fill", "red")
 				      .attr("r", function(d) {
 		   				  return rScale(d[0]);
 				    	})
