@@ -144,12 +144,11 @@ function updateData(noOfClusters) {
               } else {
                   return "Orange";
               }
-
        })
        .style("opacity", 0.6);
 
        // Removing all centroids when repainting
-       d3.select("k2centroids").remove();
+       svg.selectAll("circle.centroids").remove();
        // Drawing centroids w. stroke
        svg.selectAll("k2centroids")
           .data(centroids)
