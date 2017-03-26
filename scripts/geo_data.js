@@ -37,25 +37,27 @@
            .data(json.features)
            .enter()
            .append("path")
-           .attr("d", path)
-           .style("fill", "steelblue");
-       });
+           .attr("class", "feature")
+           .style("fill", "steelblue")
+           .attr("d", path);
+ });
 
       // Loading crime data
       d3.json("model_data.json", function(cluster_data) {
-        	// Storing data
-        	// Datapoints for the clusters
-      		datapoints_k2 = cluster_data.datapoints.k2;
+          // Storing data
+          // Datapoints for the clusters
+          datapoints_k2 = cluster_data.datapoints.k2;
           datapoints_k3 = cluster_data.datapoints.k3;
-        	datapoints_k4 = cluster_data.datapoints.k4;
-        	datapoints_k5 = cluster_data.datapoints.k5;
-        	datapoints_k6 = cluster_data.datapoints.k6;
-        	// Centroids
-        	centroids_k2  = cluster_data.centroids.k2;
-        	centroids_k3  = cluster_data.centroids.k3;
-        	centroids_k4  = cluster_data.centroids.k4;
+          datapoints_k4 = cluster_data.datapoints.k4;
+          datapoints_k5 = cluster_data.datapoints.k5;
+          datapoints_k6 = cluster_data.datapoints.k6;
+          // Centroids
+          centroids_k2  = cluster_data.centroids.k2;
+          centroids_k3  = cluster_data.centroids.k3;
+          centroids_k4  = cluster_data.centroids.k4;
           centroids_k5  = cluster_data.centroids.k5;
-        	centroids_k6  = cluster_data.centroids.k6;
+          centroids_k6  = cluster_data.centroids.k6;
+
 
       // Using data update function to set initial data material
       // Setting initial number of clusters to 2 (showing as page is loaded first time)
