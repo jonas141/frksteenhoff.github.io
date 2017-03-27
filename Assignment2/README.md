@@ -2,6 +2,8 @@
 ## Content
 In this folder you will find all material needed in order to see the full visualization for Assignment 2 in course 02806 Social Data Analysis.
 
+This page briefly describes the content of this repo and where to find it. It is meant as a guide for those peergrading the assignment such that they more easily can navigate through the work.
+
 ### Folder structure
 * **Scripts** contains all .js scripts used on the webpage
 * **Stylesheets** contains the .css file with styling elements for the webpage
