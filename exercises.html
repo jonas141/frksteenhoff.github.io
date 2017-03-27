@@ -70,7 +70,7 @@
 		<div class="container">
 			<div class="transbox">
 				<h3>Visualization 2B - geodata</h3>
-				<p>The following plot shows the geo locations of all crimes commited of type Prostitution in San Fransisco for the year xx. The basic plot shows the 'epicenters' of Prostitution when two clusters are generated based on all given locations. By clicking on the buttons below the plot, you can change the number of clusters -- data is available for at most 6 clusters.</p>
+				<p>The following plot shows the geo locations of all crimes commited of type Prostitution in San Fransisco for the years 2003-2016. The basic plot shows the 'epicenters' of Prostitution when two clusters are generated based on all given locations. By clicking on the buttons below the plot, you can change the number of clusters -- data is available for at most 6 clusters.</p>
 
 				<!-- The geodata to visualize -->
 				<div id="geo_data"></div>
@@ -86,9 +86,9 @@
 						<li><button class="buttonk" onclick="updateData(6)"><p2>K6</p2></button></li>
 					</ul>
 				</div>
-				<p>Each cluster is colored with its own color to easier separate the two groups. Some opacity is added to each point such that the intensity of the color can aid in understanding whether certain areas within the different clusters are more exposed to Prostitution. When looking at the different years ..</p>
+				<p>Each cluster is colored with a unique color to easier separate the different groups. Some opacity is added to each point such that the intensity of the color can aid in understanding whether certain areas within the different clusters are more exposed to Prostitution than others. Investigating the map, it is easy to see that most Prostitution is reported in Northern, Tenderloin (located south of Northern almost completely covered in dots) and Mission. This is also the trend shown in the previous figure from Assignment 2A. Adding the map gives an extra layer to the information that can be retrieved from the data. Now it is also possible to say something about what geographic locations in San Fransisco Prostitution most frequently occur. Lookng at SF as a square it is no doubt the upper east part that is most exposed. Remember that the different clusters to not take the districts into account. They merely show the groupings of data points where the color indicates the associated cluster. Thus, it might not fully resemble the actual number of crimes in each district or make different clusters for each district. For instance Northern and Tenderloin are both within the same cluster -- at least when choosing two clusters, but this is because of their closeness geographically. </p>
 				<p><strong>geojson file size</strong></p>
-				<p>Having a large file makes the retrieval of data for the visualizations slower. This means that transitions between different data might take longer time and the loading of data might not seem as smooth. Therefore, creating a data structure that is more compact -- containing more information using less space is preferred.</p>
+				<p>Having a large file makes the retrieval of data for the visualizations slower. This means that transitions between different data might take longer time and the loading of data might not seem as smooth. Therefore, creating a data structure that is more compact -- containing more information using less space is preferred. We ended up with a file size of ~3MB which is still quite large and can with no doubt be improved.</p>
 
 				<br></br>
 			</div>

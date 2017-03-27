@@ -77,11 +77,15 @@ p2, p3 {
     margin-right: 30px;
 }
 
-/* Container styling - areas */
+/* Container styling - areas */ 
 div.container{
     width: 1010px;
     margin-bottom: 20px;
     padding-bottom: 20px;
+}
+
+#geo_data path {
+  stroke: #fff;
 }
 
 p a {
@@ -221,6 +225,10 @@ button#year_toggle,
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+}
+
+svg #path:text {
+    color: white;
 }
 
 .buttonk {

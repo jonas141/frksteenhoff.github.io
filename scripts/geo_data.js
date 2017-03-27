@@ -1,17 +1,18 @@
 // Visualizing geo data
-    // Width and height
-    var w = 900;
-    var h = 600;
+  // Width and height
+  var w = 900;
+  var h = 600;
  
   // Global variables for data
   var datapoints_k2;
-    var k;
+  var k;
   var centroids_k2;
   var centroids_k3;
   var centroids_k4;
   var centroids_k5;
   var centroids_k6;
- 
+  var districts;
+
       // Projection variable - mercator map view
       var projection = d3.geo.mercator()
                              .center([-122.433701, 37.767683])
@@ -27,7 +28,7 @@
                     .append("svg")
                     .attr("width", w)
                     .attr("height", h);
- 
+
       // Loading geodata
       d3.json("sfpddistricts.json", function(json) {
         svg.selectAll("path")
@@ -37,8 +38,10 @@
            .attr("class", "feature")
            .style("fill", "steelblue")
            .attr("d", path);
- });
- 
+      // Save data structure
+      districts = json.features;
+});
+
       // Loading crime data
       d3.json("model_data.json", function(cluster_data) {
           // Storing data
@@ -50,7 +53,8 @@
           centroids_k4  = cluster_data.centroids.k4;
           centroids_k5  = cluster_data.centroids.k5;
           centroids_k6  = cluster_data.centroids.k6;
- 
+          // District for map
+
  
       // Using data update function to set initial data material
       // Setting initial number of clusters to 2 (showing as page is loaded first time)
@@ -77,7 +81,7 @@ function updateData(noOfClusters) {
         centroids  = centroids_k6;
     }
  
-       // Removing all previous text when repainting
+       // Removing all previous text when repainting (labels/centroids..)
        svg.selectAll("text").remove();
  
       // Add plot title
@@ -86,7 +90,24 @@ function updateData(noOfClusters) {
         .attr("transform", "translate("+ (w / 4) +","+ 50 +")")
         .text("PROSTITUTION IN SAN FRANSISCO, " + noOfClusters + " CLUSTERS")
         .style("font-size", "16px");
- 
+    
+      // Add district labels to map
+      svg.selectAll("text")
+        .data(districts)
+        .enter()
+        .append("path:text")
+          .text(function(d) { 
+              return d.properties.DISTRICT; 
+          })
+          .attr("x", function(d){
+              return path.centroid(d)[0];
+          })
+          .attr("y", function(d){
+              return  path.centroid(d)[1];
+          })
+          .attr("text-anchor","middle")
+          .attr('font-size','12pt');
+  
     // Drawing data on map
     svg.selectAll("k2data")
        .data(datapoints)
@@ -139,5 +160,4 @@ function updateData(noOfClusters) {
           .style("stroke", "black")
           .style("stroke-width","2")
           .style("opacity", 1);
- 
 }
