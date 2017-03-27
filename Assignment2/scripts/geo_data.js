@@ -38,6 +38,7 @@
            .attr("class", "feature")
            .style("fill", "steelblue")
            .attr("d", path);
+
       // Save data structure
       districts = json.features;
 });
@@ -108,37 +109,37 @@ function updateData(noOfClusters) {
           .attr("text-anchor","middle")
           .attr('font-size','12pt');
   
-    // Drawing data on map
-    svg.selectAll("k2data")
-       .data(datapoints)
-       .enter()
-       .append("circle")
-       .attr("class", "data points")
-       .attr("cx", function(d) {
-               return projection([d.lon, d.lat])[0];
-       })
-       .attr("cy", function(d) {
-               return projection([d.lon, d.lat])[1];
-       })
-       .attr("r", 2)
- 
-       // Changing the filling such that it allows up to 6 colors
-       .style("fill", function(d) {
-              if (d[k] == 0) {
-                  return "Red";
-              } else if (d[k] == 1) {
-                  return "Yellow";
-              } else if (d[k] == 2) {
-                  return "Blue";
-              } else if (d[k] == 3) {
-                  return "Green";
-              } else if (d[k] == 4) {
-                  return "Purple";
-              } else {
-                  return "Orange";
-              }
-       })
-       .style("opacity", 0.6);
+       // Drawing data on map
+       svg.selectAll("k2data")
+          .data(datapoints)
+          .enter()
+          .append("circle")
+          .attr("class", "data points")
+          .attr("cx", function(d) {
+                  return projection([d.lon, d.lat])[0];
+          })
+          .attr("cy", function(d) {
+                  return projection([d.lon, d.lat])[1];
+          })
+          .attr("r", 2)
+    
+            // Changing the filling such that it allows up to 6 colors
+            .style("fill", function(d) {
+                   if (d[k] == 0) {
+                       return "Red";
+                   } else if (d[k] == 1) {
+                       return "Yellow";
+                   } else if (d[k] == 2) {
+                       return "Blue";
+                   } else if (d[k] == 3) {
+                       return "Green";
+                   } else if (d[k] == 4) {
+                       return "Purple";
+                   } else {
+                       return "Orange";
+                   }
+            })
+          .style("opacity", 0.6);
  
        // Removing all previous centroids when repainting
        svg.selectAll("circle.centroids").remove();
