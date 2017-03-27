@@ -13,6 +13,7 @@ All data material can be found at the root of the folder "Assignment2".
 * ``dataprep.ipynb`` - the iPython Notebook with code for data extraction
 * ``model_data.json`` - cluster data for exercise 2B
 * ``sfpddistricts.json`` - all districts and geo locations
+* ``exercises.html`` - basic html for assignment -- click [here](https://frksteenhoff.github.io/Assignment2/exercises.html) for the actual webpage
 
 ## Links
 
