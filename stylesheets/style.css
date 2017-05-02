@@ -24,6 +24,11 @@ div a {
     color: #585858;
     text-decoration: none;
 }
+
+div.site-footer {
+	width: 100%;
+	height: 30px;
+}
  
 li a {
     display: block;

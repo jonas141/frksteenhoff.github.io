@@ -1,0 +1,71 @@
+<html>
+<!--<body background="images/back2.png">-->
+<body>
+	<head>
+		<meta charset="utf-8">
+		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  		<link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+  		<script type="text/javascript" src="d3/d3.js"></script>
+	</head>
+	<title>02806 - Final Exam Project</title>
+	<div id="container">
+		<img id="top" src="images/Traffic_L.jpg" align="center" height="110%" width="100%"> 
+  		<h1 id="text-top">New York City Traffic Data</h1>
+		<div class="container">
+			<div class="transbox">
+				<!-- Adding and organizing all external scripts -->
+				<h1>Motor Vehicle Incident Data 	for NYC</h1>
+				<p>This page is created as the final part of the Exam Project in course 02806 - Social Data Analysis and Visualization, spring semester 2017. The data used for visualization is gathered from <a href="http://opendata.cityofnewyork.us//" target="_blank">New York City OpenData</a> and is used for learning purposes working with data driven visualizations in D3.</p>
+			</div>
+		</div>
+  		<div class="container">
+			<div class="transbox">
+				<!-- Adding and organizing all external scripts -->
+				<h1>Accident types in New York City</h1>
+				<p2>Plotted per incident type for all boroughs</p2>
+
+				<!-- The incident data to visualize -->
+				<center><div id="incidents_all"l></div></center>
+
+			</div>
+		</div>
+  		<div class="container">
+			<div class="transbox">
+				<!-- Adding and organizing all external scripts -->
+				<h1>Accidents per borough 2013-2016</h1>
+				<p>Click here to see next year</p>
+			</div>
+		</div>
+
+		<img id="top" src="images/nyc_map.png" align="center" height="642" width="1931">  	
+		<div id='buttons'>
+			<ul>
+			<li><button class="button">
+				<a href="#" data-tooltip="View source code"><img src="images/ic_code.svg" align="right" height="50" width="50"></a>
+			</button></li>
+			<li><button class="button">
+				<a href="#" data-tooltip="Download json file"><img src="images/ic_download.svg" align="right" height="50" width="50" href="Traffic_l.jpg" download></a>
+			</button></li>
+			<li><button class="button">
+			  <a href="#" data-tooltip="View iPython Notebook"><img src="images/ic_read.svg" align="right" height="50" width="50"></a>
+			</button></li>
+			<li><button class="button">
+				<a href="#" data-tooltip="View project video"><img src="images/ic_video.svg" align="right" height="50" width="50"></a 
+			</button></li>
+			</ul>
+		</div>
+	</div>
+
+<!---	<div class="site-footer">
+		<div class="content_left"></div>
+		<div class="content_middle"></div>
+		<div class="content_right"></div>
+	</div>
+-->
+	</body>
+	<!-- SCRIPTS -->
+	<script type="text/javascript" src="scripts/incidents_all.js"></script>
+</html>
