@@ -6,10 +6,11 @@ This page briefly describes the content of this repo and where to find it. It is
 
 The visualizations are made using d3 on data from New York City Motor Vehicle Collision Data.
 
-### Folder structure
-* **Scripts** contains all .js scripts used on the webpage
-* **Stylesheets** contains the .css file with styling elements for the webpage
-* **d3** d3 files for visualizations  
+### Folders: structure and content
+* **Scripts** - contains all .js scripts used on the webpage
+* **Stylesheets** - contains the .css file with styling elements for the webpage
+* **d3** - d3 files for visualizations  
+* **images** - images used on webpage
 
 ### Data material
 All data material can be found at the root of the folder "FinalProject". 
