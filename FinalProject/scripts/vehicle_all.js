@@ -3,8 +3,6 @@
 			var h = 600;
 			var max_all = 0;
 			var vehicle_data;
-			var year = 2013;
-			var titleText = "Primary vehicle in accident, ";
 			var vehicle = [];
 			var vehicle_values = [];
 
@@ -14,8 +12,10 @@
 
   			/* Create array of causes and values */
   			for (var i = 0; i < vehicle_data.length; i++){
-  				vehicle.push(vehicle_data[i][0]);
-  				vehicle_values.push(parseInt(vehicle_data[i][1]))
+  				if(vehicle_data[i][0] != "UNKNOWN" && vehicle_data[i][0] != "OTHER"){
+  					vehicle.push(vehicle_data[i][0]);
+  					vehicle_values.push(parseInt(vehicle_data[i][1]))
+  				}
   			}
 
   			/* Variables needed in script */
@@ -24,25 +24,25 @@
 
 
   			/* Setting script values for bar chart */
-			var xScale_bar = d3.scale.ordinal()
+			var xScale = d3.scale.ordinal()
 							.domain(d3.range(vehicle.length))
-							.rangeRoundBands([0, w], 0.075);
+							.rangeRoundBands([4.75, w], 0.05);
 
-			var yScale_bar = d3.scale.linear()
+			var yScale = d3.scale.linear()
 							.domain([0, maxAccidents])
 							.range([0, h]);
 
 			//Define X axis
 			var xAxis = d3.svg.axis()
-						  .scale(xScale_bar)
+						  .scale(xScale)
 						  .orient("bottom")
-						  .ticks(6);
+						  .ticks(8);
 		
 			//Define Y axis
 			var yAxis = d3.svg.axis()
-						  .scale(yScale_bar)
+						  .scale(yScale)
 						  .orient("left")
-						  .ticks(6);
+						  .ticks(8);
 
 			//Create SVG element
 			var svg = d3.select("#primary_vehicle")
@@ -56,14 +56,14 @@
 			   .enter()
 			   .append("rect")
 			   .attr("x", function(d, i) {
-			   		return xScale_bar(i);
+			   		return xScale(i);
 			   })
 			   .attr("y", function(d) {
-			   		return h - yScale_bar(d);
+			   		return h - yScale(d);
 			   })
-			   .attr("width", xScale_bar.rangeBand())
+			   .attr("width", xScale.rangeBand())
 			   .attr("height", function(d) {
-			   		return yScale_bar(d);
+			   		return yScale(d);
 			   })
 			   .attr("fill", function(d) {
 					return "rgb(0, 0," + (d * 10) + ")";
@@ -79,10 +79,10 @@
 			   })
 			   .attr("text-anchor", "middle")
 			   .attr("x", function(d, i) {
-			   		return xScale_bar(i) + xScale_bar.rangeBand() / 2;
+			   		return xScale(i) + xScale.rangeBand() / 2;
 			   })
 			   .attr("y", function(d) {
-			   		return h - yScale_bar(d) + 14;
+			   		return h - yScale(d) + 14;
 			   })
 			   .attr("font-family", "sans-serif")
 			   .attr("font-size", "11px")
@@ -99,14 +99,6 @@
 				.attr("class", "y axis")
 				.attr("transform", "translate(" + padding/7 + ",0)")
 				.call(yAxis);
-
-		   	// Add plot title
- 		    svg.append("text")
-				.attr("class", "xy axis")
-            	.attr("transform", "translate("+ (w / 3) +","+ (padding/6) +")")
-            	.text(titleText + year)
-            	.style("font-size", "16px");
-
 			});
 
 

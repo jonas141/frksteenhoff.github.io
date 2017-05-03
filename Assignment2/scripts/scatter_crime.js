@@ -95,17 +95,17 @@ d3.text("crime_dict_all.csv", function(rows) {
 			   .attr("font-size", "13px")
 			   .attr("fill", "grey");
 
-		//Create X axis
-		svg.append("g")
-			.attr("class", "x axis")
-			.attr("transform", "translate(0," + (h - padding) + ")")
-			.call(xAxis);
-		
-		//Create Y axis
-		svg.append("g")
-			.attr("class", "y axis")
-			.attr("transform", "translate(" + padding + ",0)")
-			.call(yAxis);
+			//Create X axis
+			svg.append("g")
+				.attr("class", "x axis")
+				.attr("transform", "translate(0," + (h - padding) + ")")
+				.call(xAxis);
+			
+			//Create Y axis
+			svg.append("g")
+				.attr("class", "y axis")
+				.attr("transform", "translate(" + padding + ",0)")
+				.call(yAxis);
 	
 		// Add axis labels x
         svg.append("text")
