@@ -1,18 +1,52 @@
 			//Width and height
-			var w = 600;
-			var h = 250;
-			
-			var bar_dataset = [ 5, 10, 13, 19, 21, 25, 22, 18, 15, 13,
-							11, 12, 15, 20, 18, 17, 16, 18, 23, 25 ];
+			var w = 500;
+			var h = 600;
+			var max_all = 0;
+			var bar_dataset;
+			var titleTxt = "Accidents per borough, NYC, ";
+			var borough = ["BRONX", "BROOKLYN", "MANHATTAN", "QUEENS", "STATEN ISLAND", "Unspecified"];
+			var years_of_interest = [2013, 2014, 2015, 2016];
+			var year = 2013;
+			var numOfBoroughs, boroughNames, boroughValues;
 
+			d3.json("year_data.json", function(data) {
+  				bar_dataset = data;
+
+  			/* Find largest values within all years */
+  			for (var i = 0; i < years_of_interest.length; i++) {
+  				max_y = d3.max(Object.values(bar_dataset[years_of_interest[i]]));
+  				if(max_y > max_all) {
+  					max_all = max_y;
+  				}
+  			}
+  			/* Variables needed in script */
+  			numOfBoroughs = Object.keys(bar_dataset[year]).length;
+  			boroughNames  = Object.keys(bar_dataset[year]); 
+  			boroughValues = Object.values(bar_dataset[year]);
+  			var padding   = 70;
+
+
+  			/* Setting script values for bar chart */
 			var xScale_bar = d3.scale.ordinal()
-							.domain(d3.range(bar_dataset.length))
+							.domain(d3.range(numOfBoroughs))
 							.rangeRoundBands([0, w], 0.075);
 
 			var yScale_bar = d3.scale.linear()
-							.domain([0, d3.max(bar_dataset)])
+							.domain([0, max_all])
 							.range([0, h]);
-			
+
+			//Define X axis
+			var xAxis = d3.svg.axis()
+						  .scale(xScale_bar)
+						  .orient("bottom")
+						  .ticks(6);
+		
+			//Define Y axis
+			var yAxis = d3.svg.axis()
+						  .scale(yScale_bar)
+						  .orient("left")
+						  .ticks(6);
+
 			//Create SVG element
 			var svg = d3.select("#incidents_all")
 						.append("svg")
@@ -21,7 +55,7 @@
 			
 			//Create bars
 			svg.selectAll("rect")
-			   .data(bar_dataset)
+			   .data(boroughValues)
 			   .enter()
 			   .append("rect")
 			   .attr("x", function(d, i) {
@@ -40,7 +74,7 @@
 			
 			//Create labels
 			svg.selectAll("text")
-			   .data(bar_dataset)
+			   .data(boroughNames)
 			   .enter()
 			   .append("text")
 			   .text(function(d) {
@@ -55,29 +89,52 @@
 			   })
 			   .attr("font-family", "sans-serif")
 			   .attr("font-size", "11px")
-			   .attr("fill", "white");
+			   .attr("fill", "black");
 
+			//Create X axis
+			svg.append("g")
+				.attr("class", "x axis")
+				.attr("transform", "translate(0," + (h/1.01) + ")")
+				.call(xAxis);
+			
+			//Create Y axis
+			svg.append("g")
+				.attr("class", "y axis")
+				.attr("transform", "translate(" + padding/7 + ",0)")
+				.call(yAxis);
+
+		   	// Add plot title
+ 		    svg.append("text")
+				.attr("class", "xy axis")
+            	.attr("transform", "translate("+ (w / 3) +","+ (padding/6) +")")
+            	.text(titleTxt + year)
+            	.style("font-size", "16px");
+
+			   /* Decide what happens on click event */
 			   d3.select("p2")
 					.on("click", function() {
 	  									
-					// new bar_dataset values
-					var numVal = bar_dataset.length;
-					var maxVal = 100;
-					bar_dataset    = [];
-		
-					for(var i = 0; i < numVal; i++) {
-				       var newNum = Math.floor(Math.random() * maxVal);
-				       bar_dataset.push(newNum);
+					// new bar_dataset values - meant to loop through values 2013 - 2016
+					if (year < 2016) {
+						year += 1;
 					}
+					else {
+						year = 2013;
+					}
+
+					/* Updating borough values*/
+					/* Number of boroughs and the borough names will stay the same */
+  					boroughValues = Object.values(bar_dataset[year]);
+
 					// Update scale domain
-					yScale_bar.domain([0, d3.max(bar_dataset)]);
+					yScale_bar.domain([0, max_all]);
 
 					// Update rects
 					svg.selectAll("rect")
-					.data(bar_dataset)
+					.data(boroughValues)
 					.transition()
 					.delay(function(d, i) {
-					       return i / bar_dataset.length * 1000;
+					       return i / numOfBoroughs * 1000;
 					})    
 					// not a good use here, can add function
 					.duration(500)
@@ -96,10 +153,10 @@
 	
 					// Update all labels
 					svg.selectAll("text")
-					   .data(bar_dataset)
+					   .data(boroughNames)
 					   .transition()
 					   .delay(function(d, i) {
-				   	      return i / bar_dataset.length * 1000;
+				   	      return i / numOfBoroughs * 1000;
 					   })
 					   .duration(500)
 					   .text(function(d) {
@@ -110,6 +167,15 @@
 					   })
 			   		   .attr("y", function(d) {
 			   		   	  return h - yScale_bar(d) + 14;
-			   		   });
+			   		   })
+			   		//Update title
+					svg.select(".xy.axis")
+			    		.transition()
+			    		.duration(1000)
+	   	            	.attr("transform", "translate("+ (w / 3) +","+ (padding/2) +")")
+    		        	.text(titleTxt + year)
+    		        	.style("font-size", "16px"); 	
 			   	});
+			});
+
 
