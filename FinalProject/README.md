@@ -13,8 +13,11 @@ The visualizations are made using d3 on data from New York City Motor Vehicle Co
 
 ### Data material
 All data material can be found at the root of the folder "FinalProject". 
-* ``incidents_all`` - all incidents per borough per year
 * ``index.html`` - webpage source code
+* ``incidents_all.json`` - all incidents per borough per year
+* ``year_data.json`` - Traffic accidents per year in json object
+* ``02806_FinalProject-ExplainerNotebook.ipynb`` - the Notebook Explaining all the "behind the scenes" work with the data.
+* ``externalFunctions.py`` - all functions/methods created and used in the Explainer Notebook in order to make the notebook more ledgible.
 
 ## Links
 
