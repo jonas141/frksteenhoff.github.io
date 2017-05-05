@@ -65,6 +65,30 @@ a:hover:not(.active) {
     text-decoration: none;
 }
 
+p_ {
+  font-size: 20px;
+  color: #9c9c9c;
+  padding-left: 40px;
+}
+
+/* Shapefile styling */
+.feature {
+    fill: none;
+    stroke: green; /* Boarder color between states */
+    stroke-width: 1px;
+    stroke-linejoin: round;
+}
+
+.mesh {
+    fill: none;
+    stroke: lightgrey;
+    stroke-width: 2px;
+    stroke-linejoin: round;
+}
+.states:hover {
+  fill: magenta;
+}
+
 /* General font size and styling */
 p,
 h1, 
@@ -168,7 +192,20 @@ div.container.bar {
 /* Large landing page picture */
 
 div.jumbotron.img {
-	margin-right: 0px;
+  	margin-right: 0px;
+}
+
+
+/* Axis styling for bar chart */
+.axis {
+    font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+    fill: white;
+    stroke: #000;
+    shape-rendering: crispEdges;
 }
 
 /* Button and SVG element styling */

@@ -61,35 +61,16 @@
 			   .attr("x", function(d, i) {
 			   		return xScale_bar(i);
 			   })
+			   .attr("width", xScale_bar.rangeBand())
 			   .attr("y", function(d) {
 			   		return h - yScale_bar(d);
 			   })
-			   .attr("width", xScale_bar.rangeBand())
 			   .attr("height", function(d) {
 			   		return yScale_bar(d);
 			   })
 			   .attr("fill", function(d) {
 					return "rgb(0, 0," + (d * 10) + ")";
 			   });
-			
-			//Create labels
-			svg.selectAll("text")
-			   .data(boroughNames)
-			   .enter()
-			   .append("text")
-			   .text(function(d) {
-			   		return d;
-			   })
-			   .attr("text-anchor", "middle")
-			   .attr("x", function(d, i) {
-			   		return xScale_bar(i) + xScale_bar.rangeBand() / 2;
-			   })
-			   .attr("y", function(d) {
-			   		return h - yScale_bar(d) + 14;
-			   })
-			   .attr("font-family", "sans-serif")
-			   .attr("font-size", "11px")
-			   .attr("fill", "black");
 
 			//Create X axis
 			svg.append("g")

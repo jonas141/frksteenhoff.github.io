@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Point on a map D3</title>
+
+<link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="http://d3js.org/topojson.v1.min.js"></script>
+
+<script type="text/javascript">
+var width = 950,
+    height = 550,
+    geo;
+
+// set projection
+var projection = d3.geo.mercator();
+
+// create path variable
+var path = d3.geo.path()
+    .projection(projection);
+
+
+d3.json("Density_reduced.json", function(error, topo) {
+    geo = topo;
+
+    // set projection parameters
+    projection
+      .scale(100)
+
+    // create svg variable
+    var svg = d3.select("#geo").append("svg")
+            .attr("width", width)
+            .attr("height", height);
+
+  // add states from topojson
+  svg.selectAll("path")
+      .data(geo.features).enter()
+      .append("path")
+      .attr("class", "feature")
+      .style("fill", "steelblue")
+      .attr("d", path);
+});
+
+</script>
+<p>Hello there!</p>
+<div id="geo"></div>
+</body>
+</html>
