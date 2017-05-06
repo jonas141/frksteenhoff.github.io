@@ -114,8 +114,8 @@ svg {
     margin-right: 20px;
 }
 
-rect:hover {
-    fill: magenta;
+g.rect {
+  color: darkgreen;
 }
 
 /* Container styling - areas */
@@ -210,6 +210,19 @@ div.jumbotron.img {
 
 /* Button and SVG element styling */
 
+button#year_toggle,
+.button_small {
+    background-color: #dbdcdd; /* Grey */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-left: 30px;
+}
+
 .button {
     border: none;
     background-color: #ffffff; /* Background behind button */
@@ -235,6 +248,8 @@ div.jumbotron.img {
     padding-top: 50px;
 
 }
+
+button#year_toggle:hover,
 button:hover {
     background-color: #9c9c9c; /* Color on hover over button */
     opacity: 0.95;

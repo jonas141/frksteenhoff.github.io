@@ -25,7 +25,7 @@ d3.json("primary_vehicle.json", function(data) {
 /* Variables needed in script */
 var maxAccidents = d3.max(vehicle_values);
 
-	/* Setting script values for bar chart */
+/* Setting script values for bar chart */
 var xScale = d3.scale.ordinal()
 				.domain(vehicle)
 				.rangeRoundBands([0, w], 0.05);
@@ -42,8 +42,7 @@ var xAxis = d3.svg.axis()
 //Define Y axis
 var yAxis = d3.svg.axis()
 			  .scale(yScale)
-			  .orient("left")
-			  .ticks(10);
+			  .orient("left");
 
 //Create SVG element
 var svg = d3.select("#primary_vehicle")
@@ -56,20 +55,31 @@ var svg = d3.select("#primary_vehicle")
 
 //Create bars
 svg.selectAll("rect")
-   .data(vehicle_values)
+   .data(vehicle)
    .enter()
    .append("rect")
    .attr("x", function(d, i) {
    		return xScale(d);
    })
-   .attr("width", xScale.rangeBand())
-   .attr("y", function(d) {
-     	console.log(yScale(d));
-   		console.log(d);
-   		return h - yScale(d);
+	
+   .attr("fill", "darkgreen")
+	.on("mouseover", function() {
+    	d3.select(this)
+    		.attr("fill", "orange");
+	})
+	.on("mouseout", function(d, i) {
+    	d3.select(this)
+    		.attr("fill", "darkgreen");
+	});
+
+// Set bar height
+svg.selectAll("rect")
+ 	.data(vehicle_values)
+ 	.attr("y", function(d) {
+   		return yScale(d);
    })
    .attr("height", function(d) {
-   		return yScale(d); /* number of accidents */
+   		return h - yScale(d); /* number of accidents */
    });
 
 //Create X axis
@@ -86,7 +96,6 @@ svg.append("g")
 //Create Y axis
 svg.append("g")
 	.attr("class", "y axis")
-	.attr("y", 6)
 	.call(yAxis);
 });
 
