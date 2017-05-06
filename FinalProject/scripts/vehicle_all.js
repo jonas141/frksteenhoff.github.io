@@ -67,16 +67,8 @@ svg.selectAll("rect")
    		return xScale(d);
    })
    .attr("width", xScale.rangeBand())
-   .attr("fill", "darkgreen")
-	.on("mouseover", function() {
-    	d3.select(this)
-    		.attr("fill", "orange");
-	})
-	.on("mouseout", function(d, i) {
-    	d3.select(this)
-    		.attr("fill", "darkgreen");
-	});
-
+   .attr("fill", "darkgreen");
+   
 // Set bar height
 svg.selectAll("rect")
  	.data(vehicle_values)
@@ -92,6 +84,8 @@ svg.selectAll("rect")
 		var xPosition = parseFloat(d3.select(this).attr("x"));
 		var yPosition = parseFloat(d3.select(this).attr("y")) - 5;
 		//Create the tooltip label
+		d3.select(this)
+			.attr("fill", "orange")
 		svg.append("text")
 		   .attr("id", "tooltip")
 		   .attr("x", xPosition)
@@ -103,7 +97,9 @@ svg.selectAll("rect")
 		   .attr("background", "rgba(255,255,255,0.5)")
 		   .text("Accidents: " + d3.format(",.0")(d));
    })
-   .on("mouseout", function() {
+   .on("mouseout", function(d) {
+   		d3.select(this)
+    		.attr("fill", "darkgreen");
 		//Remove the tooltip
 		d3.select("#tooltip").remove();
 	})
