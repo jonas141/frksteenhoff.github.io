@@ -44,6 +44,11 @@ var yAxis = d3.svg.axis()
 			  .scale(yScale)
 			  .orient("left");
 
+// Define the div for the tooltip
+var div = d3.select("rect")	
+    .attr("a", "data-tooltip")				
+    .style("opacity", 0);
+
 //Create SVG element
 var svg = d3.select("#primary_vehicle")
 			.append("svg")
@@ -61,7 +66,7 @@ svg.selectAll("rect")
    .attr("x", function(d, i) {
    		return xScale(d);
    })
-	
+   .attr("width", xScale.rangeBand())
    .attr("fill", "darkgreen")
 	.on("mouseover", function() {
     	d3.select(this)
@@ -80,7 +85,28 @@ svg.selectAll("rect")
    })
    .attr("height", function(d) {
    		return h - yScale(d); /* number of accidents */
-   });
+   })
+
+   .on("mouseover", function(d) {
+		//Get this bar's x/y values, then augment for the tooltip
+		var xPosition = parseFloat(d3.select(this).attr("x"));
+		var yPosition = parseFloat(d3.select(this).attr("y")) - 5;
+		//Create the tooltip label
+		svg.append("text")
+		   .attr("id", "tooltip")
+		   .attr("x", xPosition)
+		   .attr("y", yPosition)
+		   .attr("font-family", "sans-serif")
+		   .attr("font-size", "11px")
+		   .attr("font-weight", "bold")
+		   .attr("fill", "black")
+		   .attr("background", "rgba(255,255,255,0.5)")
+		   .text("Accidents: " + d3.format(",.0")(d));
+   })
+   .on("mouseout", function() {
+		//Remove the tooltip
+		d3.select("#tooltip").remove();
+	})
 
 //Create X axis
 svg.append("g")

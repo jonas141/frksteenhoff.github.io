@@ -84,7 +84,11 @@ svg.selectAll("rect")
    })
    .attr("height", function(d) {
    		return h - yScale_bar(d); /* number of accidents */
-   });
+   })
+   .append("title")
+   .text(function(d) {
+   		return "Number of accidents: " + d3.format(",.0")(d);
+   	});
 
 //Create X axis
 svg.append("g")
@@ -105,7 +109,7 @@ svg.append("g")
 // Add plot title
 svg.append("text")
 	.attr("class", "xy axis")
-	.attr("transform", "translate("+ (w / 3) +","+ (margin.left/6) +")")
+	.attr("transform", "translate("+ (w / 3) +","+ (margin.left-55) +")")
 	.text(titleTxt + year)
 	.style("font-size", "16px");
 
@@ -143,7 +147,7 @@ d3.select("#year_toggle")
 	svg.select(".xy.axis")
 		.transition()
 		.duration(1000)
-        	.attr("transform", "translate("+ (w / 3) +","+ (margin.left) +")")
+        	.attr("transform", "translate("+ (w / 3) +","+ (margin.left-55) +")")
     	.text(titleTxt + year)
     	.style("font-size", "16px"); 	
    	});

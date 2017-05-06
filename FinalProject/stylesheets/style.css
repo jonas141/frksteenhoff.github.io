@@ -114,10 +114,6 @@ svg {
     margin-right: 20px;
 }
 
-g.rect {
-  color: darkgreen;
-}
-
 /* Container styling - areas */
 
 div.container{
@@ -256,12 +252,8 @@ button:hover {
     filter: alpha(opacity=95); /* For IE8 and earlier */
 }
 
- /* TOOL TIPS FROM https://chrisbracco.com/a-simple-css-tooltip/*/
-
-/**
- * Tooltip Styles
- */
-
+/* TOOL TIPS FROM https://chrisbracco.com/a-simple-css-tooltip/*/
+/* Used for button toooltips*/
 /* Base styles for the element that has a tooltip */
 [data-tooltip],
 .tooltip {
