@@ -10,8 +10,8 @@
   		<link rel="stylesheet" type="text/css" href="stylesheets/style.css">
   		<script type="text/javascript" src="d3/d3.js"></script>
   		<script src="http://d3js.org/topojson.v1.min.js"></script>
+		<title>02806 - Final Exam Project</title>
 	</head>
-	<title>02806 - Final Exam Project</title>
 	<div id="container">
 		<!-- Landing page image -->
 		<img id="top" src="images/Traffic_L.jpg" align="center" height="110%" width="100%"> 
@@ -34,34 +34,25 @@
 		<!-- Accident types -->
   		<div class="container">
 			<div class="transbox">
-				<h1>Primary vehicle in collision</h1>
-				<p2>Listed by most common</p2>
+				<h1>Vehicle in collision and contributing factors</h1>
+				<button type="button_small" id=stats_toggle><p3>Toggle: primary vehicle/contributing factors</p3></button>
+				<br></br>
 
 				<!-- The data to visualize -->
 				<center><div id="primary_vehicle"></div></center>
-				<p>For the purpose of this assignment, we have chosen to remove all the accidents without an indication of which borough the accident happened in. This is discussed further in the <a href="http://nbviewer.jupyter.org/github/frksteenhoff/02806_SDA/blob/master/02806_FinalProject-ExplainerNotebook.ipynb" target="_blank">Notebook.</a></p>
+				<p>For the purpose of this assignment, we have chosen not to include all the accidents without an indication of which borough or for what reason the accident happened. This is discussed further in the <a href="http://nbviewer.jupyter.org/github/frksteenhoff/02806_SDA/blob/master/02806_FinalProject-ExplainerNotebook.ipynb" target="_blank">Notebook.</a></p>
 				<br></br>
 			</div>
 		</div>
 		
-		<!-- Accident types -->
-  		<div class="container">
-			<div class="transbox">
-				<h1>Factors contributing to collisions</h1>
-				<p>Listed by most common</p>
-
-				<!-- The data to visualize -->
-				<center><div id="factors_all"l></div></center>
-				<br></br>
-			</div>
-		</div>
-
 		<!-- Geo-plotting -->
   		<div class="container">
 			<div class="transbox">
 				<h1>Geo-plotting</h1>
 				<p>Accidents per borough of a certain kind? Possibly Driver Inattention in 2016</p>
 				<p>Each borough in a different colour.</p>
+				<center><div id="geo"></div></center>
+				<br></br>
 			</div>
 		</div>
 
@@ -89,11 +80,12 @@
   		<div class="container">
 			<div class="transbox">
 				<h1>Accidents per borough 2013-2016</h1>
-				<p>Plotted per borough</p>
 				<button type="button_small" id=year_toggle><p3>Click here for next year</p3></button>
+				<br></br>
 
 				<!-- The incident data to visualize -->
 				<center><div id="incidents_all"l></div></center>
+				<p>Somehow the opacity on the first borough is set to 0 by default .. Need to fix this little bugger.</p>
 				<br></br>
 			</div>
 		</div>
@@ -129,4 +121,7 @@
 	<!-- SCRIPTS -->
 	<script type="text/javascript" src="scripts/incidents_all.js"></script>
 	<script type="text/javascript" src="scripts/vehicle_all.js"></script>
+	<script type="text/javascript" src="scripts/geo_nyc.js"></script>
+	<script type="text/javascript" src="https://github.com/1wheel/graph-scroll/blob/gh-pages/graph-scroll.js"></script>
+	<script type="text/javascript" src="https://github.com/1wheel/graph-scroll/blob/gh-pages/d3v4%2Bjetpack.js"></script>
 </html>

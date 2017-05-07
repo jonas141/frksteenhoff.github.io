@@ -15,10 +15,6 @@
 	  shape-rendering: crispEdges;
 	}
 
-  svg:hover {
-    fill: black;
-  }
-
 	</style>
 </head>
 
@@ -31,15 +27,6 @@
 var margin = {top: 20, right: 20, bottom: 70, left: 40},
     width = 600 - margin.left - margin.right,
     height = 300 - margin.top - margin.bottom;
-var vehicle;
-var vehicle_values;
-        for (var i = 0; i < vehicle_data.length; i++){
-          if(vehicle_data[i][0] != "UNKNOWN" && vehicle_data[i][0] != "OTHER"){
-            vehicle.push(vehicle_data[i][0]);
-            vehicle_values.push(parseInt(vehicle_data[i][1]))
-          }
-        }
-
 
 // Parse the date / time
 var	parseDate = d3.time.format("%Y-%m").parse;
@@ -70,7 +57,7 @@ d3.csv("bar-data.csv", function(error, data) {
     data.forEach(function(d) {
         d.date = parseDate(d.date);
         d.value = +d.value;
-    });
+    }); 
 	
   x.domain(data.map(function(d) { return d.date; }));
   y.domain([0, d3.max(data, function(d) { return d.value; })]);

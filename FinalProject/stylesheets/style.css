@@ -85,9 +85,6 @@ p_ {
     stroke-width: 2px;
     stroke-linejoin: round;
 }
-.states:hover {
-  fill: magenta;
-}
 
 /* General font size and styling */
 p,
@@ -206,6 +203,7 @@ div.jumbotron.img {
 
 /* Button and SVG element styling */
 
+button#stats_toggle,
 button#year_toggle,
 .button_small {
     background-color: #dbdcdd; /* Grey */
@@ -245,6 +243,7 @@ button#year_toggle,
 
 }
 
+button#stats_toggle:hover
 button#year_toggle:hover,
 button:hover {
     background-color: #9c9c9c; /* Color on hover over button */
@@ -372,3 +371,4 @@ button:hover {
   -moz-transform:    translateY(-12px);
   transform:         translateY(-12px); 
 }
+
