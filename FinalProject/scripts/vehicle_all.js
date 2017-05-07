@@ -8,7 +8,7 @@ var margin = {top: 20, right: 50, bottom: 200, left: 50},
 w          = 960 - margin.left - margin.right,
 h          = 500 - margin.top - margin.bottom;
 
-d3.json("primary_vehicle.json", function(data) {
+d3.json("data/primary_vehicle.json", function(data) {
 		vehicle_data = data;
 
 	/* Create array of causes and values */
@@ -68,7 +68,7 @@ svg.selectAll("rect")
    })
    .attr("width", xScale.rangeBand())
    .attr("fill", "darkgreen");
-   
+
 // Set bar height
 svg.selectAll("rect")
  	.data(vehicle_values)

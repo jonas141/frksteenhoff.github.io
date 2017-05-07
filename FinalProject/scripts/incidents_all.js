@@ -1,7 +1,7 @@
 // Global variables
 var max_all = 0,  // all time max num of accidents
     titleTxt = "Accidents per borough, NYC, ",
-    borough = ["BRONX", "BROOKLYN", "MANHATTAN", "QUEENS", "STATEN ISLAND", "Unspecified"],
+    borough = ["BRONX", "BROOKLYN", "MANHATTAN", "QUEENS", "STATEN ISLAND"],
     years_of_interest = [2013, 2014, 2015, 2016],
     year = 2013, // First year to visualize
     /* Margin and padding */
@@ -12,12 +12,13 @@ var bar_dataset;  // Initializing dataset
 var numOfBoroughs, boroughNames, boroughValues;
 
 // Reading in json data - accidents per year per borough
-d3.json("year_data.json", function(data) {
+d3.json("data/year_data.json", function(data) {
 		bar_dataset = data;
 
 	/* Find largest values within all years */
 	for (var i = 0; i < years_of_interest.length; i++) {
 		max_y = d3.max(Object.values(bar_dataset[years_of_interest[i]]));
+		console.log(max_y);
 		if(max_y > max_all) {
 			max_all = max_y;
 		}
